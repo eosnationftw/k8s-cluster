@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: reader-node
+spec:
+  selector:
+    matchLabels:
+      app: reader-node
+  serviceName: reader-node
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: reader-node
+    spec:
+      containers:
+      - name: reader-node
+        image: fireeth
+        args:
+          - "start"
+          - "reader-node"
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/usr/local/bin/eth-maintenance"]
+        # command:
+        #   - "bash"
+        #   - "-c"
+        #   - "tail -f /dev/null"
+        # command:
+        #   - "bash"
+        #   - "-c"
+        #   - "geth --datadir $FIREETH_READER_NODE_DATA_DIR snapshot prune-state && echo DONE && tail -f /dev/null"
+        ports:
+          - name: eth66-udp
+            containerPort: 30310
+            protocol: UDP
+          - name: eth66-tcp
+            containerPort: 30310
+            protocol: TCP
+          - name: eth-consensus
+            containerPort: 8547
+            protocol: TCP
+          - name: prometheus-fh
+            containerPort: 9102
+            protocol: TCP
+          - name: prometheus-geth
+            containerPort: 6061
+            protocol: TCP
+          - name: fh-grpc
+            containerPort: 13010
+            protocol: TCP
+          - name: fh-node-mgr
+            containerPort: 13009
+
+        env:
+          - name: FIREETH_COMMON_CHAIN_ID
+            value: "1"
+          - name: FIREETH_COMMON_NETWORK_ID
+            value: "1"
+          - name: FIREETH_READER_NODE_ARGUMENTS
+            value: "+--cache=8192 --maxpeers=100 --syncmode full --metrics --metrics.addr=0.0.0.0 --metrics.port=6061 --port=30310 --discovery.port=30310 --http.port=8545 --authrpc.port=8547 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/var/lib/jwt-eth/jwt.hex --snapshot=true --txlookuplimit=1000 --nat=extip:51.81.57.78"
+          - name: FIREETH_READER_NODE_LOG_TO_ZAP
+            value: "false"
+          - name: FIREETH_GLOBAL_LOG_TO_FILE
+            value: "false"
+          - name: FIREETH_GLOBAL_DATA_DIR
+            value: "/var/lib/fireeth"
+          - name: FIREETH_READER_NODE_DATA_DIR
+            value: "/var/lib/geth"
+          - name: FIREETH_COMMON_ONE_BLOCK_STORE_URL
+            value: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+          - name: FIREETH_COMMON_LIVE_BLOCKS_ADDR
+            value: "relayer:13011"
+        volumeMounts:
+          - name: reader
+            mountPath: "/var/lib/fireeth"
+          - name: reader-node
+            mountPath: "/var/lib/geth"
+          - name: jwt
+            mountPath: /var/lib/jwt-eth
+      volumes:
+        - name: reader
+          persistentVolumeClaim:
+            claimName: reader
+        - name: reader-node
+          persistentVolumeClaim:
+            claimName: reader-node
+        - name: jwt
+          secret:
+            secretName: jwt
+            items:
+              - key: jwt.hex
+                path: jwt.hex
+      terminationGracePeriodSeconds: 60

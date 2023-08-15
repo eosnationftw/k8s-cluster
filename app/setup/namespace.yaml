@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sf-ethereum
+  labels:
+    istio-injection: enabled # This should probably be moved to specific apps instead of the namespace

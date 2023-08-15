@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: merger
+spec:
+  selector:
+    matchLabels:
+      app: merger
+  serviceName: merger
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: merger
+    spec:
+      containers:
+        - name: merger
+          image: fireeth
+          args:
+            - "start"
+            - "merger"
+            - "-vv"
+          # command:
+          #   - "bash"
+          #   - "-c"
+          #   - "tail -f /dev/null"
+          ports:
+            - containerPort: 30310
+              protocol: UDP
+              name: eth66-udp
+            - containerPort: 30310
+              protocol: TCP
+              name: eth66-tcp
+            - containerPort: 8547
+              protocol: TCP
+              name: eth-consensus
+          env:
+            - name: FIREETH_COMMON_CHAIN_ID
+              value: "1"
+            - name: FIREETH_COMMON_NETWORK_ID
+              value: "1"
+            - name: FIREETH_GLOBAL_LOG_TO_FILE
+              value: "false"
+            - name: FIREETH_GLOBAL_DATA_DIR
+              value: "/var/lib/fireeth"
+            - name: FIREETH_COMMON_ONE_BLOCK_STORE_URL
+              value: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+            - name: FIREETH_COMMON_MERGED_BLOCKS_STORE_URL
+              value: "s3://seaweedfs:8333/fireeth-merged-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+            - name: FIREETH_COMMON_FORKED_BLOCKS_STORE_URL
+              value: "s3://seaweedfs:8333/fireeth-forked-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+            - name: FIREETH_COMMON_LIVE_BLOCKS_ADDR
+              value: "relayer:13011"
+          volumeMounts:
+            - name: merger
+              mountPath: "/var/lib/fireeth"
+      volumes:
+        - name: merger
+          persistentVolumeClaim:
+            claimName: merger

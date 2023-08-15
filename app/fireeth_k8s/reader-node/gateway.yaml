@@ -1,0 +1,60 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: eth66-udp-gateway
+spec:
+  selector:
+    istio: ingress
+  servers:
+    - port:
+        number: 30310
+        name: eth66-udp
+        protocol: UDP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: eth66-tcp-gateway
+spec:
+  selector:
+    istio: ingress
+  servers:
+    - port:
+        number: 30310
+        name: eth66-tcp
+        protocol: TCP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: eth66-udp-virtualservice
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - eth66-udp-gateway
+  udp:
+    - match:
+        - port: 30310
+      route:
+        - destination:
+            host: eth66-udp
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: eth66-tcp-virtualservice
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - eth66-tcp-gateway
+  http:
+    - route:
+        - destination:
+            host: eth66-tcp

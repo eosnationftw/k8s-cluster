@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: indexer
+spec:
+  selector:
+    matchLabels:
+      app: indexer
+  serviceName: indexer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indexer
+    spec:
+      containers:
+      - name: indexer
+        image: fireeth
+        args:
+          - "start"
+          - "combined-index-builder"
+        # command:
+        #   - "bash"
+        #   - "-c"
+        #   - "tail -f /dev/null"
+        ports:
+          - name: grpc-healthz
+            containerPort: 13043
+            protocol: TCP
+        env:
+          - name: FIREETH_COMMON_CHAIN_ID
+            value: "1"
+          - name: FIREETH_COMMON_NETWORK_ID
+            value: "1"
+          - name: FIREETH_GLOBAL_LOG_TO_FILE
+            value: "false"
+          - name: FIREETH_GLOBAL_DATA_DIR
+            value: "/var/lib/fireeth"
+          - name: FIREETH_COMMON_ONE_BLOCK_STORE_URL
+            value: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+          - name: FIREETH_COMMON_MERGED_BLOCKS_STORE_URL
+            value: "s3://seaweedfs:8333/fireeth-merged-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+          - name: FIREETH_COMMON_FORKED_BLOCKS_STORE_URL
+            value: "s3://seaweedfs:8333/fireeth-forked-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+          - name: FIREETH_COMMON_INDEX_STORE_URL
+            value: "s3://seaweedfs:8333/fireeth-index?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+          - name: FIREETH_COMMON_LIVE_BLOCKS_ADDR
+            value: "relayer:13011"
+
+        # Not 100% sure it needs stateful storage
+        volumeMounts:
+          - name: indexer
+            mountPath: "/var/lib/fireeth"
+      volumes:
+        - name: indexer
+          persistentVolumeClaim:
+            claimName: indexer

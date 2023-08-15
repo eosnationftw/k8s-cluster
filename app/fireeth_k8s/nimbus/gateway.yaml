@@ -1,0 +1,60 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: nimbus-udp-gateway
+spec:
+  selector:
+    istio: ingress
+  servers:
+    - port:
+        number: 30310
+        name: nimbus-udp
+        protocol: UDP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: nimbus-tcp-gateway
+spec:
+  selector:
+    istio: ingress
+  servers:
+    - port:
+        number: 30310
+        name: nimbus-tcp
+        protocol: TCP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nimbus-udp-virtualservice
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - nimbus-udp-gateway
+  udp:
+    - match:
+        - port: 30310
+      route:
+        - destination:
+            host: nimbus-udp
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nimbus-tcp-virtualservice
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - nimbus-tcp-gateway
+  http:
+    - route:
+        - destination:
+            host: nimbus-tcp

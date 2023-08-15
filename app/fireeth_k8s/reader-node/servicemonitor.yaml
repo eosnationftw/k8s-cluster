@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: reader-node
+  labels:
+    app: reader-node
+    serviceMonitorTarget: "true"
+spec:
+  jobLabel: reader-node
+  selector:
+    matchLabels:
+      app: reader-node
+  endpoints:
+  - port: prometheus-fh
+    path: /
+  - port: prometheus-geth
+    path: /debug/metrics/prometheus
