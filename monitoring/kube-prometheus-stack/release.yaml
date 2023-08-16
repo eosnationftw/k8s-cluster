@@ -31,6 +31,10 @@ spec:
         podMonitorSelector:
           matchLabels:
             app.kubernetes.io/component: monitoring
+    prometheus-node-exporter:
+      service:
+        # Change the port to avoid conflict with on-prem prometheus
+        port: 9111
   postRenderers:
     - kustomize:
         patches:
