@@ -10,7 +10,7 @@ spec:
       protocol: TCP
       source:
         ports:
-          - 0-65535 # Allow traffic from any port
+          - "1:65535" # Allow traffic from any port
       destination:
         ports:
           - 30310 # Allow traffic to port 30310
@@ -18,7 +18,7 @@ spec:
       protocol: UDP
       source:
         ports:
-          - 0-65535 # Allow traffic from any port
+          - "1:65535" # Allow traffic from any port
       destination:
         ports:
           - 30310 # Allow traffic to port 30310
