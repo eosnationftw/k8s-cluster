@@ -1,0 +1,25 @@
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: nimbus-nodeports
+spec:
+  selector: all() # Apply to all pods
+  description: "Nimbus NodePorts"
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        ports:
+          - 0-65535 # Allow traffic from any port
+      destination:
+        ports:
+          - 31000 # Allow traffic to port 31000
+    - action: Allow
+      protocol: UDP
+      source:
+        ports:
+          - 0-65535 # Allow traffic from any port
+      destination:
+        ports:
+          - 31000 # Allow traffic to port 31000

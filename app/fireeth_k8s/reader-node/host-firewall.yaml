@@ -1,0 +1,25 @@
+---
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: fh-eth-nodeports
+spec:
+  selector: all() # Apply to all pods
+  description: "Firehose geth NodePorts"
+  ingress:
+    - action: Allow
+      protocol: TCP
+      source:
+        ports:
+          - 0-65535 # Allow traffic from any port
+      destination:
+        ports:
+          - 30310 # Allow traffic to port 30310
+    - action: Allow
+      protocol: UDP
+      source:
+        ports:
+          - 0-65535 # Allow traffic from any port
+      destination:
+        ports:
+          - 30310 # Allow traffic to port 30310
