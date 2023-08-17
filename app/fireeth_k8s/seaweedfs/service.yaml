@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: seaweedfs
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 8333
-      nodePort: 30000
       targetPort: s3
       protocol: TCP
   selector:
