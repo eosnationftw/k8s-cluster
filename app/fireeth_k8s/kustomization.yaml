@@ -11,3 +11,8 @@ resources:
   - firehose
   - nimbus
   - seaweedfs
+
+images:
+  - name: fireeth
+    newName: ghcr.io/streamingfast/firehose-ethereum
+    newTag: v1.3.8-geth-v1.11.5-fh2.2

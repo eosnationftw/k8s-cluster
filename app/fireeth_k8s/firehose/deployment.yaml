@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: firehose
-          image: ghcr.io/streamingfast/firehose-ethereum:v1.3.8-geth-v1.11.5-fh2.2
+          image: fireeth
           args:
             - "start"
             - "firehose"
