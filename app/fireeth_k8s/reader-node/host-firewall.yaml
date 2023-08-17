@@ -5,7 +5,6 @@ metadata:
   name: fh-eth-nodeports
 spec:
   selector: all() # Apply to all pods
-  description: "Firehose geth NodePorts"
   ingress:
     - action: Allow
       protocol: TCP

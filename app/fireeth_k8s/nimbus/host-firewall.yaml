@@ -5,7 +5,6 @@ metadata:
   name: nimbus-nodeports
 spec:
   selector: all() # Apply to all pods
-  description: "Nimbus NodePorts"
   ingress:
     - action: Allow
       protocol: TCP
