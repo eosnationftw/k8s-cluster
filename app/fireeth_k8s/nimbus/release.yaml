@@ -14,4 +14,33 @@ spec:
         name: nimbus-repo
   interval: 5m
   values:
-    - ./values.yaml
+    image:
+      tag: amd64-v23.3.2
+
+    nimbus:
+      executionClientUrl: http://eth-consensus:8547
+      jwt:
+        existingSecret:
+          name: jwt
+          key: jwt.hex
+
+    volumeClaimSpec:
+      storageClassName: openebs-hostpath
+      resources:
+        requests:
+          storage: 300Gi
+
+    p2pNodePort:
+      enabled: true
+      port: 31000
+
+    trustedNodeSync:
+      enabled: true
+      trustedNodeUrl: https://beaconstate.info
+
+    prometheus:
+      serviceMonitors:
+        enabled: true
+
+    grafana:
+      dashboards: true
