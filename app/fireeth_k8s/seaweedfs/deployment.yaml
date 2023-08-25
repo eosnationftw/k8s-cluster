@@ -17,22 +17,25 @@ spec:
     spec:
       # Refer to the PVC created earlier
       volumes:
-      - name: storage
-        persistentVolumeClaim:
-          # Name of the PVC created earlier
-          claimName: seaweedfs-fh-blocks
+        - name: storage
+          persistentVolumeClaim:
+            # Name of the PVC created earlier
+            claimName: seaweedfs-fh-blocks
       containers:
-      - name: seaweedfs
-        # Pulls the default Minio image from Docker Hub
-        image: chrislusf/seaweedfs:3.45
-        args:
-        - server
-        - -s3
-        ports:
-        - name: s3
-          containerPort: 8333
-          hostPort: 8333
-        # Mount the volume into the pod
-        volumeMounts:
-        - name: storage # must match the volume name, above
-          mountPath: "/data"
+        - name: seaweedfs
+          # Pulls the default Minio image from Docker Hub
+          image: chrislusf/seaweedfs:3.45
+          args:
+            - server
+            - -s3
+          ports:
+            - name: s3
+              containerPort: 8333
+              hostPort: 8333
+          # Mount the volume into the pod
+          volumeMounts:
+            - name: storage # must match the volume name, above
+              mountPath: "/data"
+          env:
+            - name: INIT_DIRECTORIES
+              value: "/fireeth-index,/fireeth-one-blocks,/fireeth-merged-blocks,/fireeth-forked-blocks"
