@@ -36,12 +36,12 @@ spec:
           volumeMounts:
             - name: storage # must match the volume name, above
               mountPath: "/data"
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  [
-                    "/bin/sh",
-                    "-c",
-                    'echo "s3.bucket.create -name fireeth-index" | weed shell && echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell'
-                  ]
+          # lifecycle:
+          #   postStart:
+          #     exec:
+          #       command:
+          #         [
+          #           "/bin/sh",
+          #           "-c",
+          #           'echo "s3.bucket.create -name fireeth-index" | weed shell && echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell'
+          #         ]
