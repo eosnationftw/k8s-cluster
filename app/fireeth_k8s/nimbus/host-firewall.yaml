@@ -1,24 +1,14 @@
----
-apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
+apiVersion: "cilium.io/v2"
+kind: CiliumClusterwideNetworkPolicy
 metadata:
-  name: nimbus-nodeports
+  name: "nimbus-nodeports"
 spec:
-  selector: all() # Apply to all pods
+  nodeSelector: {}
+  description: "Nimbus NodePorts"
   ingress:
-    - action: Allow
-      protocol: TCP
-      source:
-        ports:
-          - 31000 # Allow traffic from any port
-      destination:
-        ports:
-          - 31000 # Allow traffic to port 31000
-    - action: Allow
-      protocol: UDP
-      source:
-        ports:
-          - 31000 # Allow traffic from any port
-      destination:
-        ports:
-          - 31000 # Allow traffic to port 31000
+    - toPorts:
+        - ports:
+            - port: "31000"
+              protocol: TCP
+            - port: "31000"
+              protocol: UDP

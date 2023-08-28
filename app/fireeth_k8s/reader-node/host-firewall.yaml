@@ -1,24 +1,14 @@
----
-apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
+apiVersion: "cilium.io/v2"
+kind: CiliumClusterwideNetworkPolicy
 metadata:
-  name: fh-eth-nodeports
+  name: "fh-eth-nodeports"
 spec:
-  selector: all() # Apply to all pods
+  nodeSelector: {}
+  description: "Firehose geth NodePorts"
   ingress:
-    - action: Allow
-      protocol: TCP
-      source:
-        ports:
-          - 30310 # Allow traffic from any port
-      destination:
-        ports:
-          - 30310 # Allow traffic to port 30310
-    - action: Allow
-      protocol: UDP
-      source:
-        ports:
-          - 30310 # Allow traffic from any port
-      destination:
-        ports:
-          - 30310 # Allow traffic to port 30310
+    - toPorts:
+        - ports:
+            - port: "30310"
+              protocol: TCP
+            - port: "30310"
+              protocol: UDP
