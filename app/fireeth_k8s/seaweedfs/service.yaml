@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: seaweedfs
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 8333
       targetPort: s3
-      nodePort: 30000 # Exposing port 30000 to test rclone
       protocol: TCP
   selector:
     app: seaweedfs
