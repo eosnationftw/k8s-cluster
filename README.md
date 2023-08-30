@@ -274,7 +274,16 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
    Since this repo is a test and not yet hosted by the org, you will need to fork
    your own in order to make changes and authenticate using the flux agent.
 
-2. Creating the authentication secrets
+2. Cloning the forked repo
+
+   To use fluxCD and make changes to the application, you will need to clone the repo
+   on the server node.
+
+   ```bash
+   git clone <fork-user>/k8s-firehose.git
+   ```
+
+3. Creating the authentication secrets
 
    The `flux bootstrap` command will need a secret GitHub personal token wity repo permissions
    in order to link the deployment to the cluster. If you don't currently have one, you will need
@@ -288,9 +297,10 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
    export GITHUB_TOKEN=#YOUR-GITHUB-TOKEN
    ```
 
-3. Bootstrapping the cluster
+4. Bootstrapping the cluster
 
-   After creating the auth secrets, you will be able to bootstrap the cluster using this command:
+   After creating the auth secrets, you will be able to bootstrap the cluster.
+   `cd` into the cloned repo and run this command:
 
    ```bash
    flux bootstrap github \
@@ -303,7 +313,7 @@ kubectl taint nodes --all node-role.kubernetes.io/control-plane-
        --read-write-key
    ```
 
-4. Are we there yet?
+5. Are we there yet?
 
    **YES!**
 
