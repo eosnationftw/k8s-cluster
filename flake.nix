@@ -8,18 +8,12 @@
     in {
       devShells.x86_64-linux.default = pkgs.mkShell {
         name = "K8S Firehose";
-        buildInputs = [ pkgs.fluxcd pkgs.istioctl pkgs.kind pkgs.kubectl ];
+        buildInputs = [ pkgs.fluxcd pkgs.cilium-cli pkgs.kubectl ];
         shellHook = ''
-          # Deleting kind cluster if present
-          kind delete cluster > /dev/null 2>&1
-
           echo "========================================================="
           echo "Nix shell for $name"
           echo "Make sure you read the README before testing the cluster."
           echo "========================================================="
-
-          # Starting kind cluster
-          bash ./startup.sh
         '';
       };
     };
