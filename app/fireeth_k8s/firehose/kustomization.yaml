@@ -4,3 +4,9 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
+
+configMapGenerator:
+- name: firehose-config
+  behavior: replace
+  files:
+    - config.yaml
