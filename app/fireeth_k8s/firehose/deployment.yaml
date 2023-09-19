@@ -19,6 +19,7 @@ spec:
             - "start"
             - "-c"
             - "/config/config.yaml"
+            - "-v"
           ports:
             - name: grpc
               containerPort: 13042
