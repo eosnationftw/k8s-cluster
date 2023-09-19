@@ -17,7 +17,7 @@ spec:
           image: fireeth
           args:
             - "-c"
-            - "/config/firehose-config"
+            - "/config/config.yaml"
           ports:
             - name: grpc
               containerPort: 13042
