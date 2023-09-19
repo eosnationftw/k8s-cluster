@@ -17,6 +17,7 @@ spec:
         - name: indexer
           image: fireeth
           args:
+            - "start"
             - "-c"
             - "/config/config.yaml"
           ports:

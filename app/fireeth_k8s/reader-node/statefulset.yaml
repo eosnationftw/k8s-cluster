@@ -19,6 +19,7 @@ spec:
         args:
           - "start"
           - "reader-node"
+          - "-v"
         lifecycle:
           preStop:
             exec:
