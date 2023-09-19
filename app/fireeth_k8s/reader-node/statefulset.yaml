@@ -19,6 +19,7 @@ spec:
         args:
           - "start"
           - "-c"
+          - "reader-node"
           - "/config/config.yaml"
           - "-v"
         lifecycle:
