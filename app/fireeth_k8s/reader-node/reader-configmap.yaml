@@ -3,7 +3,7 @@ data:
   config.yaml: |
     start:
       args:
-      - firehose
+      - reader-node
       flags:
         common-chain-id: "1"
         common-network-id: "1"
@@ -17,4 +17,4 @@ data:
 kind: ConfigMap
 metadata:
   creationTimestamp: null
-  name: firehose-config
+  name: reader-config
