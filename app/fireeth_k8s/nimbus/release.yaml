@@ -8,14 +8,14 @@ spec:
   chart:
     spec:
       chart: nimbus
-      version: 0.3.0
+      version: 0.5.1
       sourceRef:
         kind: HelmRepository
         name: nimbus-repo
   interval: 5m
   values:
     image:
-      tag: amd64-v23.3.2
+      tag: multiarch-v23.9.0
 
     nimbus:
       executionClientUrl: http://eth-consensus:8547
@@ -24,19 +24,19 @@ spec:
           name: jwt
           key: jwt.hex
 
-    volumeClaimSpec:
-      storageClassName: openebs-hostpath
-      resources:
-        requests:
-          storage: 300Gi
+      p2pNodePort:  
+        enabled: true
+        port: 31000
+      
+      trustedNodeSync:
+        enabled: true
+        trustedNodeUrl: https://beaconstate.info
 
-    p2pNodePort:
-      enabled: true
-      port: 31000
-
-    trustedNodeSync:
-      enabled: true
-      trustedNodeUrl: https://beaconstate.info
+      volumeClaimSpec:
+        storageClassName: openebs-hostpath
+        resources:
+          requests:
+            storage: 300Gi
 
     prometheus:
       serviceMonitors:
