@@ -18,8 +18,8 @@ spec:
         image: fireeth
         args:
           - "start"
-          - "-c"
           - "reader-node"
+          - "-c"
           - "/config/config.yaml"
           - "-v"
         lifecycle:

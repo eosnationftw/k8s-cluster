@@ -17,8 +17,8 @@ spec:
           image: fireeth
           args:
             - "start"
-            - "-c"
             - "firehose"
+            - "-c"
             - "/config/config.yaml"
             - "-v"
           ports:
