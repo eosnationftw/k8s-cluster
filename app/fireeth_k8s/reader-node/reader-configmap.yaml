@@ -12,7 +12,6 @@ data:
         common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
         common-forked-blocks-store-url: "s3://seaweedfs:8333/fireeth-forked-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
         reader-node-grpc-listen-addr: :13010
-        reader-node-path: /usr/bin/geth
         reader-node-data-dir: /var/lib/geth
         reader-node-arguments: "+--port=30310 --cache=8192 --authrpc.port=8547 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/var/lib/jwt-eth/jwt.hex --http.port=8545"
         reader-node-bootstrap-data-url: /etc/genesis/genesis.json
