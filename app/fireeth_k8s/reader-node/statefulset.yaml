@@ -78,5 +78,5 @@ spec:
                 path: jwt.hex
         - name: config-volume
           configMap:
-            name: firehose-config
+            name: reader-config
       terminationGracePeriodSeconds: 60
