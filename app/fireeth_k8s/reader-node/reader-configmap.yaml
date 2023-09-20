@@ -4,15 +4,13 @@ data:
     flags:
       common-chain-id: "1"
       common-network-id: "1"
-      common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
-      common-live-blocks-addr: :13011
+      reader-node-arguments: "+--cache=8192 --maxpeers=100 --syncmode full --metrics --metrics.addr=0.0.0.0 --metrics.port=6061 --port=30310 --discovery.port=30310 --http.port=8545 --authrpc.port=8547 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/var/lib/jwt-eth/jwt.hex --snapshot=true --txlookuplimit=1000 --nat=extip:51.81.57.78"
       log-to-file: false
       reader-node-log-to-zap: false
-      # reader-node-path: /usr/bin/geth
       reader-node-data-dir: /var/lib/geth
       data-dir: /var/lib/fireeth
-      reader-node-arguments: "+--port=30310 --discovery.port=30310 --cache=8192 --maxpeers=100 --syncmode full --metrics --metrics.addr=0.0.0.0 --metrics.port=6061 --authrpc.port=8547 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/var/lib/jwt-eth/jwt.hex --http.port=8545 --snapshot=true --txlookuplimit=1000 --nat=extip:51.81.57.78"
-      # reader-node-bootstrap-data-url: /etc/genesis/genesis.json
+      common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+      common-live-blocks-addr: :13011
 kind: ConfigMap
 metadata:
   creationTimestamp: null
