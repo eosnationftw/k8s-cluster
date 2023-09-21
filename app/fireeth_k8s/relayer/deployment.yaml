@@ -17,7 +17,8 @@ spec:
         image: fireeth
         args:
           - "start"
-          - "relayer"
+          - "-c"
+          - "/config/config.yaml"
         ports:
           - name: grpc
             containerPort: 13011

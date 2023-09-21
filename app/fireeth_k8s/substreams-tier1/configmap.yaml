@@ -9,15 +9,15 @@ data:
       args:
       - substreams-tier1
       flags:
-        verbose: 0
+        verbose: 1
         log-to-file: false
         common-chain-id: "1"
         common-network-id: "1"
-        common-live-blocks-addr: %COMMON_SF_BLOCKSTREAM_ADDR%
-        common-merged-blocks-store-url: %COMMON_SF_BLOCKS_STORE_URL%
-        common-one-block-store-url: %COMMON_SF_ONEBLOCK_STORE_URL%
-        common-forked-blocks-store-url: %COMMON_SF_FORKED_BLOCKS_STORE_URL%
-        substreams-rpc-endpoints: http://$EOSN_HOST_NETWORK-erigon.service.march.consul.eosn.io:8545
+        common-live-blocks-addr: "relayer:13011"
+        common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+        common-merged-blocks-store-url: "s3://seaweedfs:8333/fireeth-merged-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+        common-forked-blocks-store-url: "s3://seaweedfs:8333/fireeth-forked-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+        substreams-rpc-endpoints: http://reader-node:8545
         substreams-state-store-url: %COMMON_SF_SUBSTREAMS_STATE_STORE_URL%
         substreams-tier1-grpc-listen-addr: :9000
         substreams-tier1-max-subrequests: 1000
