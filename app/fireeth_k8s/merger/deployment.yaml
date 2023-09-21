@@ -36,4 +36,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: indexer-config
+            name: merger-config
