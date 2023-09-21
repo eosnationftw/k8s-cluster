@@ -45,6 +45,7 @@ spec:
             protocol: TCP
           - name: fh-node-mgr
             containerPort: 13009
+            protocol: TCP
         volumeMounts:
           - name: reader
             mountPath: "/var/lib/fireeth"
