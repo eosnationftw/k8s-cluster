@@ -37,7 +37,7 @@ spec:
           - name: prometheus-fh
             containerPort: 9102
             protocol: TCP
-          - name: prometheus-geths
+          - name: prometheus-geth
             containerPort: 6061
             protocol: TCP
           - name: fh-grpc
