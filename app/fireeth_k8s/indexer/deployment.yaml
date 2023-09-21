@@ -18,7 +18,6 @@ spec:
           image: fireeth
           args:
             - "start"
-            - "combined-index-builder"
             - "-c"
             - "/config/config.yaml"
           ports:
