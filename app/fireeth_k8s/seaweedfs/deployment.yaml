@@ -43,5 +43,5 @@ spec:
           #         [
           #           "/bin/sh",
           #           "-c",
-          #           'echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell && echo "s3.bucket.create -name fireeth-index" | weed shell'
+          #           'echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell && echo "s3.bucket.create -name fireeth-index" | weed shell && echo "s3.bucket.create -name fireeth-state" | weed shell'
           #         ]

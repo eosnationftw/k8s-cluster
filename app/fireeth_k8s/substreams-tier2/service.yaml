@@ -8,6 +8,6 @@ spec:
     app: firehose
   ports:
     - name: grpc
-      port: 13044
+      port: 13045
       protocol: TCP
       targetPort: grpc

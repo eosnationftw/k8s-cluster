@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: substreams-tier1
+  name: substreams-tier2
 spec:
   selector:
     matchLabels:
-      app: substreams-tier1
+      app: substreams-tier2
   replicas: 1
   template:
     metadata:
       labels:
-        app: substreams-tier1
+        app: substreams-tier2
     spec:
       containers:
-        - name: substreams-tier1
+        - name: substreams-tier2
           image: fireeth
           args:
             - "start"
@@ -21,7 +21,7 @@ spec:
             - "/config/config.yaml"
           ports:
             - name: grpc
-              containerPort: 13044
+              containerPort: 13045
               protocol: TCP
           volumeMounts:
             - name: config-volume
@@ -29,4 +29,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: substreams-tier1-config
+            name: substreams-tier2-config

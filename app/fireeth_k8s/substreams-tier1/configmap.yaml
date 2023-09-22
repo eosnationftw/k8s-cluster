@@ -7,19 +7,18 @@ data:
   config.yaml: |
     start:
       args:
-      - substreams-tier1
+        - substreams-tier1
       flags:
         verbose: 1
-        log-to-file: false
-        common-chain-id: "1"
-        common-network-id: "1"
-        common-live-blocks-addr: "relayer:13011"
-        common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
         common-merged-blocks-store-url: "s3://seaweedfs:8333/fireeth-merged-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+        common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
         common-forked-blocks-store-url: "s3://seaweedfs:8333/fireeth-forked-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
-        substreams-rpc-endpoints: http://reader-node:8545
-        substreams-state-store-url: %COMMON_SF_SUBSTREAMS_STATE_STORE_URL%
-        substreams-tier1-grpc-listen-addr: :9000
-        substreams-tier1-max-subrequests: 1000
-        substreams-tier1-subrequests-endpoint: localhost:5000
+        common-live-blocks-addr: "relayer:13011"
+        common-system-shutdown-signal-delay: 10s
+        substreams-rpc-endpoints: https://eth.rpc.pinax.nework:8545/
+        substreams-state-store-url: "s3://seaweedfs:8333/fireeth-state?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
+        substreams-tier1-request-stats: true
+        substreams-tier1-grpc-listen-addr: :13044
+        substreams-tier1-subrequests-endpoint: "substreams-tier2:13045"
+
         
