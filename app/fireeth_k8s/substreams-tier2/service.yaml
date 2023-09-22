@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: firehose
+  name: substreams-tier2
 spec:
   type: ClusterIP
   selector:
-    app: firehose
+    app: substreams-tier2
   ports:
     - name: grpc
       port: 13045
