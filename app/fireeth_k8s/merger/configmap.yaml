@@ -7,7 +7,7 @@ data:
   config.yaml: |
     start:
       args:
-      - combined-index-builder
+      - merger
       flags:
         verbose: "1"
         common-chain-id: "1"
