@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: substreams-tier2
-  replicas: 1
+  replicas: 4
   template:
     metadata:
       labels:
