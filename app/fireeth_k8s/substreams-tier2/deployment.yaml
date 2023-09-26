@@ -18,7 +18,7 @@ spec:
           resources:
             requests:
               memory: "1Gi"
-              cpu: "4000m"
+              cpu: "750m"
           args:
             - "start"
             - "-c"
