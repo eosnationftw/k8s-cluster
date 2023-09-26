@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: sf-ethereum
 resources:
   - setup
+  - scaler
   - reader-node
   - merger
   - relayer
