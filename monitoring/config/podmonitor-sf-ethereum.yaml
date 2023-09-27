@@ -1,0 +1,33 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: sf-ethereum
+  namespace: sf-ethereum
+  labels:
+    app.kubernetes.io/part-of: fireeth
+    app.kubernetes.io/component: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - sf-ethereum
+  selector:
+    matchExpressions:
+      - key: app
+        operator: In
+        values:
+          - firehose
+          # - indexer
+          # - merger
+          # - nimbus
+          # - reader-node
+          # - relayer
+          # - seaweedfs
+          # - substreams-tier1
+          # - substreams-tier2
+  podMetricsEndpoints:
+    - port: prom
+      relabelings:
+        # https://github.com/prometheus-operator/prometheus-operator/issues/4816
+        - sourceLabels: [__meta_kubernetes_pod_phase]
+          action: keep
+          regex: Running
