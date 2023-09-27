@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - podmonitor-flux.yaml
+  - podmonitor-sf-ethereum.yaml
 configMapGenerator:
   - name: flux-grafana-dashboards
     files:
