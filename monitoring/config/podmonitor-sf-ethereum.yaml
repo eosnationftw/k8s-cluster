@@ -16,14 +16,14 @@ spec:
         operator: In
         values:
           - firehose
-          # - indexer
-          # - merger
-          # - nimbus
-          # - reader-node
-          # - relayer
+          - indexer
+          - merger
+          - nimbus
+          - reader-node
+          - relayer
           # - seaweedfs
-          # - substreams-tier1
-          # - substreams-tier2
+          - substreams-tier1
+          - substreams-tier2
   podMetricsEndpoints:
     - port: prom
       relabelings:
