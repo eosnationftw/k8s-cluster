@@ -12,7 +12,7 @@ spec:
   triggers:
   - type: prometheus
     metadata:
-      serverAddress: http://localhost:2000/
+      serverAddress: http://kube-prometheus-stack-prometheus.monitoring:9090
       metricName: substreams_block_process_start_counter
       threshold: "5"
       query: rate(substreams_block_process_start_counter{container="substreams-tier2"}[1m])
