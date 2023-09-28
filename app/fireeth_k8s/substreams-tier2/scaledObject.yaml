@@ -14,5 +14,5 @@ spec:
     metadata:
       serverAddress: http://localhost:2000/
       metricName: substreams_block_process_start_counter
-      threshold: 5
+      threshold: "5"
       query: rate(substreams_block_process_start_counter{container="substreams-tier2"}[1m])
