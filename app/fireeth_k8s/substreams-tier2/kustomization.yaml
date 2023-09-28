@@ -6,5 +6,5 @@ resources:
   - configmap.yaml
   - deployment.yaml
   - service.yaml
-  # - scaledObject.yaml
+  - scaledObject.yaml
   # - autoscaler.yaml
