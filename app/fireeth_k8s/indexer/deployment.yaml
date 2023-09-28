@@ -24,6 +24,9 @@ spec:
             - name: grpc-healthz
               containerPort: 13043
               protocol: TCP
+            - name: prom
+              containerPort: 9102
+              protocol: TCP
           volumeMounts:
             - name: config-volume
               mountPath: /config

@@ -23,6 +23,9 @@ spec:
           - name: grpc
             containerPort: 13011
             protocol: TCP
+          - name: prom
+            port: 9102
+            protocol: TCP
         volumeMounts:
           - name: config-volume
             mountPath: /config
