@@ -14,5 +14,5 @@ spec:
     - name: prom
       port: 9102
       protocol: TCP
-      targetPort: prom
+      targetPort: 9102
 

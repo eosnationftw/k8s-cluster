@@ -11,3 +11,7 @@ spec:
       port: 13045
       protocol: TCP
       targetPort: grpc
+    - name: prom
+      port: 9102
+      protocol: TCP
+      targetPort: 9102
