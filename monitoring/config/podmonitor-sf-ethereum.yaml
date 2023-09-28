@@ -4,7 +4,7 @@ metadata:
   name: sf-ethereum
   namespace: sf-ethereum
   labels:
-    app.kubernetes.io/part-of: fireeth
+    # app.kubernetes.io/part-of: fireeth
     app.kubernetes.io/component: monitoring
 spec:
   namespaceSelector:

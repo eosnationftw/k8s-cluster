@@ -11,7 +11,3 @@ spec:
       port: 13043
       protocol: TCP
       targetPort: grpc-healthz
-    - name: prom
-      port: 9102
-      protocol: TCP
-      targetPort: prom
