@@ -7,6 +7,7 @@ spec:
     name: substreams-tier2
   pollingInterval:  5                                       # Optional. Default: 30 seconds
   cooldownPeriod:   30                                      # Optional. Default: 300 seconds
+  idleReplicaCount: 0
   minReplicaCount:  1                                       # Optional. Default: 0
   maxReplicaCount:  10
   triggers:
