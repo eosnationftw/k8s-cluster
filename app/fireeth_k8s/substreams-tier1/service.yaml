@@ -11,6 +11,7 @@ spec:
       port: 13044
       protocol: TCP
       targetPort: grpc
+      nodePort: 30044
     - name: prom
       port: 9102
       protocol: TCP
