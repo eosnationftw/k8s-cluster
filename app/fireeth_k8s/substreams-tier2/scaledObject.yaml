@@ -16,4 +16,5 @@ spec:
       serverAddress: http://kube-prometheus-stack-prometheus.monitoring:9090
       metricName: substreams_block_process_start_counter
       threshold: "0.03"
+      activationThreshold: "0.02"
       query: rate(container_cpu_usage_seconds_total{container="substreams-tier1"}[1m])
