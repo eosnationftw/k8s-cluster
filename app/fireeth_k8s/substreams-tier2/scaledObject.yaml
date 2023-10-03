@@ -7,7 +7,7 @@ spec:
     name: substreams-tier2
   pollingInterval:  5                                       # Optional. Default: 30 seconds
   cooldownPeriod:   30                                      # Optional. Default: 300 seconds
-  # idleReplicaCount: 0
+  idleReplicaCount: 0
   minReplicaCount:  1                                       # Optional. Default: 0
   maxReplicaCount:  10
   triggers:
@@ -15,5 +15,5 @@ spec:
     metadata:
       serverAddress: http://kube-prometheus-stack-prometheus.monitoring:9090
       metricName: substreams_block_process_start_counter
-      threshold: "5"
-      query: rate(substreams_block_process_start_counter{container="substreams-tier2"}[1m])
+      threshold: "0.03"
+      query: rate(container_cpu_usage_seconds_total{container="substreams-tier1"}[1m])
