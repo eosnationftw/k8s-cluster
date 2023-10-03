@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: substreams-tier1
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: substreams-tier1
   ports:
