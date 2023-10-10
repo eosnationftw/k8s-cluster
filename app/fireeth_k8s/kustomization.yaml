@@ -17,4 +17,4 @@ resources:
 images:
   - name: fireeth
     newName: ghcr.io/streamingfast/firehose-ethereum
-    newTag: v1.4.14-geth-v1.12.2-fh2.3-1
+    newTag: v1.4.18
