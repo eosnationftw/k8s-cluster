@@ -1,4 +1,13 @@
 ---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: keda-repo
+  namespace: keda
+spec:
+  interval: 5m
+  url: https://kedacore.github.io/charts
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -18,25 +27,8 @@ spec:
       keda:
         repository: ghcr.io/kedacore/keda
         tag: main
-
-    nimbus:
-      executionClientUrl: http://eth-consensus:8547
-      jwt:
-        existingSecret:
-          name: jwt
-          key: jwt.hex
-
-      p2pNodePort:  
-        enabled: true
-        port: 31000
-      
-      trustedNodeSync:
-        enabled: true
-        trustedNodeUrl: https://beaconstate.info
-
     prometheus:
       operator:
         enabled: true
-
     grafana:
       dashboards: true
