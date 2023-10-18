@@ -18,8 +18,10 @@ spec:
   chart:
     spec:
       chart: kube-prometheus-stack
-      version: "51.9.2"
+      version: "51.9.0"
       sourceRef:
         kind: HelmRepository
         name: prometheus
       interval: 12h
+  values: 
+    namespaceOverride: prometheus

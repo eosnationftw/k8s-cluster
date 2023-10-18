@@ -4,6 +4,6 @@ namespace: flux-system
 resources:
   - weave.yaml                    # Flux dashboard
   - prometheus.yaml               # Metrics
-  # - traefik.yaml                  # Ingress controller
+  - traefik.yaml                  # Ingress controller
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
