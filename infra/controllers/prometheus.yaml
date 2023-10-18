@@ -23,4 +23,10 @@ spec:
         kind: HelmRepository
         name: prometheus
       interval: 12h
-  values: []
+  values: 
+    prometheusOperator:
+      service:
+        type: NodePort
+    prometheus:
+      service:
+        type: NodePort
