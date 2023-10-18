@@ -28,15 +28,11 @@ spec:
       ingress:
         enabled: true
         ingressClassName: traefik
-        hosts:
-          - dom84.mar.eosn.io
         path: /prometheus
         pathType: Prefix
     grafana:
       ingress:
         enabled: true
         ingressClassName: traefik
-        hosts:
-          - dom84.mar.eosn.io
         path: /grafana
         pathType: Prefix
