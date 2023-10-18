@@ -15,3 +15,4 @@ spec:
     name: flux-system
   path: ./app
   wait: true
+  prune: true
