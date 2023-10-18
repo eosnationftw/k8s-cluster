@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: prometheus-repo
+  name: prometheus
   namespace: flux-system
 spec:
   interval: 60m
@@ -11,7 +11,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: prometheus-release
+  name: prometheus
   namespace: flux-system
 spec:
   interval: 60m
@@ -21,5 +21,5 @@ spec:
       version: "51.9.0"
       sourceRef:
         kind: HelmRepository
-        name: prometheus-repo
+        name: prometheus
       interval: 12h
