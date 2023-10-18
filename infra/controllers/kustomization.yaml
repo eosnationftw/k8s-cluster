@@ -7,4 +7,4 @@ resources:
   - prometheus.yaml               # Metrics
   - traefik.yaml                  # Ingress controller
   - openebs.yaml                  # Dynamic storage
-  # - keda.yaml                     # Horizontal autoscaling
+  - keda.yaml                     # Horizontal autoscaling
