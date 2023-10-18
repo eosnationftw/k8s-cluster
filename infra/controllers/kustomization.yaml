@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - weave.yaml                    # Flux dashboard
-  # - prometheus.yaml               # Metrics
+  - prometheus.yaml               # Metrics
   # - traefik.yaml                  # Ingress controller
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling

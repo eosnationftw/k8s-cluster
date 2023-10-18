@@ -23,3 +23,5 @@ spec:
         kind: HelmRepository
         name: prometheus
       interval: 12h
+    values: 
+      namespaceOverride: prometheus
