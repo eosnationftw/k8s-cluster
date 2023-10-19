@@ -13,6 +13,8 @@ kind: HelmRelease
 metadata:
   name: openebs
   namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
 spec:
   interval: 60m
   chart:
@@ -24,3 +26,4 @@ spec:
         name: openebs
       interval: 12h
   targetNamespace: openebs
+  createNamespace: true

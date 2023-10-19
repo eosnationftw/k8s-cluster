@@ -13,6 +13,8 @@ kind: HelmRelease
 metadata:
   name: prometheus
   namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
 spec:
   interval: 60m
   chart:
@@ -24,6 +26,7 @@ spec:
         name: prometheus
       interval: 12h
   targetNamespace: monitoring
+  createNamespace: true
   values: 
     prometheus:
       ingress:

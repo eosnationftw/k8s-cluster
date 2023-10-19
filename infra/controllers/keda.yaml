@@ -14,7 +14,7 @@ metadata:
   name: keda
   namespace: flux-system
   annotations:
-    helm.fluxcd.io/uninstall: "true"
+    helm.fluxcd.io/uninstall: true
 spec:
   interval: 5m
   chart:

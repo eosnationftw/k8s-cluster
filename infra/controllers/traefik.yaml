@@ -13,6 +13,8 @@ kind: HelmRelease
 metadata:
   name: traefik
   namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
 spec:
   interval: 60m
   chart:
@@ -24,6 +26,7 @@ spec:
         name: traefik
       interval: 12h
   targetNamespace: traefik
+  createNamespace: true
   values:
     service:
       type: NodePort
