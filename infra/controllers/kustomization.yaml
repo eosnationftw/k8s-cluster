@@ -8,3 +8,4 @@ resources:
   - traefik.yaml                  # Ingress controller
   - openebs.yaml                  # Dynamic storage
   - keda.yaml                     # Horizontal autoscaling
+  # - nimbus.yaml                   # Consensus client for firehose

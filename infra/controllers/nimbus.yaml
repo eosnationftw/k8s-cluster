@@ -1,4 +1,13 @@
 ---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: nimbus-repo
+  namespace: sf-ethereum
+spec:
+  interval: 5m
+  url: https://graphops.github.io/launchpad-charts
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
