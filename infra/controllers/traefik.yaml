@@ -23,7 +23,7 @@ spec:
         kind: HelmRepository
         name: traefik
       interval: 12h
+  targetNamespace: traefik
   values:
-    namespace: traefik
     service:
       type: NodePort
