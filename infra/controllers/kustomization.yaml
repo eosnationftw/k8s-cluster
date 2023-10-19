@@ -11,25 +11,23 @@ patches:
 - target:
     kind: HelmRepository
   patch: |
-    apiVersion: source.toolkit.fluxcd.io/v1beta2
-    kind: HelmRepository
-    metadata:
-      namespace: flux-system
-    spec:
-      interval: 6h
+    - op: add
+      metadata:
+        namespace: flux-system
+      spec:
+        interval: 6h
 
 - target:
     kind: HelmRelease
   patch: |
-    apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    metadata:
-      namespace: flux-system
-      annotations:
-        helm.fluxcd.io/uninstall: true
-    spec:
-      createNamespace: true
-      interval: 6h
-      chart:
-        spec:
-          interval: 6h
+    - op: add
+      metadata:
+        namespace: flux-system
+        annotations:
+          helm.fluxcd.io/uninstall: true
+      spec:
+        createNamespace: true
+        interval: 6h
+        chart:
+          spec:
+            interval: 6h
