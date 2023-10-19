@@ -7,5 +7,5 @@ resources:
   - traefik.yaml                  # Ingress controller
   - prometheus.yaml               # Metrics
   - openebs.yaml                  # Dynamic storage
-  - keda.yaml                     # Horizontal autoscaling
+  # - keda.yaml                     # Horizontal autoscaling
   # - nimbus.yaml                   # Consensus client for firehose
