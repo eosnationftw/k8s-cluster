@@ -23,6 +23,7 @@ spec:
         name: keda
   interval: 5m
   targetNamespace: keda
+  uninstall: true
   values:
     prometheus:
       metricServer:
