@@ -24,5 +24,6 @@ spec:
         name: traefik
       interval: 12h
   values:
+    namespace: traefik
     service:
       type: NodePort
