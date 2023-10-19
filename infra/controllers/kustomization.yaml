@@ -5,7 +5,7 @@ resources:
   - namespaces.yaml               # Namespaces
   - weave.yaml                    # Flux dashboard
   - prometheus.yaml               # Metrics
-  - traefik.yaml                  # Ingress controller
-  - openebs.yaml                  # Dynamic storage
-  - keda.yaml                     # Horizontal autoscaling
+  # - traefik.yaml                  # Ingress controller
+  # - openebs.yaml                  # Dynamic storage
+  # - keda.yaml                     # Horizontal autoscaling
   # - nimbus.yaml                   # Consensus client for firehose
