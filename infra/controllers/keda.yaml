@@ -13,6 +13,8 @@ kind: HelmRelease
 metadata:
   name: keda
   namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: "true"
 spec:
   chart:
     spec:
@@ -23,7 +25,7 @@ spec:
         name: keda
   interval: 5m
   targetNamespace: keda
-  uninstall: true
+  # createNamespace: true
   values:
     prometheus:
       metricServer:
