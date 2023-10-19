@@ -16,6 +16,7 @@ metadata:
   annotations:
     helm.fluxcd.io/uninstall: "true"
 spec:
+  interval: 5m
   chart:
     spec:
       chart: keda
@@ -23,9 +24,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: keda
-  interval: 5m
   targetNamespace: keda
-  # createNamespace: true
+  createNamespace: true
   values:
     prometheus:
       metricServer:
