@@ -7,7 +7,7 @@ resources:
   - openebs.yaml                  # Dynamic storage
   - keda.yaml                     # Horizontal autoscaling
 
-patches:
+patchesJson6902:
 - target:
     kind: HelmRepository
   patch: |
@@ -26,7 +26,8 @@ patches:
       value: flux-system
     - op: add
       path: /metadata/annotations
-      value: helm.fluxcd.io/uninstall: true
+      value:
+        helm.fluxcd.io/uninstall: "true"
     - op: add
       path: /spec/createNamespace
       value: true
