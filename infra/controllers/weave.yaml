@@ -24,6 +24,7 @@ spec:
         kind: HelmRepository
         name: weave-gitops
       interval: 12h
+  targetNamespace: weave
   values:
     resources:
       requests:

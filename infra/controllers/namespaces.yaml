@@ -2,9 +2,24 @@
 apiVersion: v1
 kind: Namespace
 metadata:
+  name: weave
+---
+apiVersion: v1
+kind: Namespace
+metadata:
   name: monitoring
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: traefik
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openebs
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: keda
