@@ -3,20 +3,14 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: prometheus
-  namespace: flux-system
 spec:
-  interval: 60m
   url: https://prometheus-community.github.io/helm-charts
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: prometheus
-  namespace: flux-system
-  annotations:
-    helm.fluxcd.io/uninstall: true
 spec:
-  interval: 60m
   chart:
     spec:
       chart: kube-prometheus-stack
@@ -26,7 +20,6 @@ spec:
         name: prometheus
       interval: 12h
   targetNamespace: monitoring
-  createNamespace: true
   values: 
     prometheus:
       ingress:
