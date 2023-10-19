@@ -10,7 +10,6 @@ resources:
 patches:
 - target:
     kind: HelmRepository
-    namespace: flux-system
   patch: |
     apiVersion: source.toolkit.fluxcd.io/v1beta2
     kind: HelmRepository
@@ -21,7 +20,6 @@ patches:
 
 - target:
     kind: HelmRelease
-    namespace: flux-system
   patch: |
     apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
