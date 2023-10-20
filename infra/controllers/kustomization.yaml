@@ -7,56 +7,28 @@ resources:
   - openebs.yaml                  # Dynamic storage
   - keda.yaml                     # Horizontal autoscaling
 
-patchesStrategicMerge:
-- |-
-  apiVersion: source.toolkit.fluxcd.io/v1beta2
-  kind: HelmRepository
-  metadata:
-    name: prometheus
-    namespace: flux-system
-  spec:
-    interval: 6h
+# Not able to patch resources grouped by kind
+# patchesStrategicMerge:
+# - |-
+#   apiVersion: source.toolkit.fluxcd.io/v1beta2
+#   kind: HelmRepository
+#   metadata:
+#     name: prometheus
+#     namespace: flux-system
+#   spec:
+#     interval: 6h
 
-- |-
-  apiVersion: helm.toolkit.fluxcd.io/v2beta1
-  kind: HelmRelease
-  metadata:
-    name: prometheus
-    namespace: flux-system
-    annotations:
-      helm.fluxcd.io/uninstall: "true"
-  spec:
-    createNamespace: true
-    interval: 6h
-    chart:
-      spec:
-        interval: 6h
-
-# patchesJson6902:
-# - target:
-#     kind: HelmRepository
-#   patch: |
-#     - op: add
-#       path: /metadata/namespace
-#       value: flux-system
-#     - op: add
-#       path: /spec/interval
-#       value: 6h
-
-  # patch: |
-  #   - op: add
-  #     path: /metadata/namespace
-  #     value: flux-system
-  #   - op: add
-  #     path: /metadata/annotations
-  #     value:
-  #       helm.fluxcd.io/uninstall: "true"
-  #   - op: add
-  #     path: /spec/createNamespace
-  #     value: true
-  #   - op: add
-  #     path: /spec/interval
-  #     value: 6h
-  #   - op: add
-  #     path: /spec/chart/spec/interval
-  #     value: 6h
+# - |-
+#   apiVersion: helm.toolkit.fluxcd.io/v2beta1
+#   kind: HelmRelease
+#   metadata:
+#     name: prometheus
+#     namespace: flux-system
+#     annotations:
+#       helm.fluxcd.io/uninstall: "true"
+#   spec:
+#     createNamespace: true
+#     interval: 6h
+#     chart:
+#       spec:
+#         interval: 6h

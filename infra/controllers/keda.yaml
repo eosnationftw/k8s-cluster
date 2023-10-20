@@ -3,14 +3,20 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
   name: keda
+  namespace: flux-system
 spec:
+  interval: 6h
   url: https://kedacore.github.io/charts
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: keda
+  namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
 spec:
+  interval: 6h
   chart:
     spec:
       chart: keda
@@ -19,6 +25,7 @@ spec:
         kind: HelmRepository
         name: keda
   targetNamespace: keda
+  createNamespace: true
   values:
     prometheus:
       metricServer:
