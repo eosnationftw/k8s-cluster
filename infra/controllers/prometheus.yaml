@@ -25,7 +25,8 @@ spec:
         kind: HelmRepository
         name: prometheus
   targetNamespace: monitoring
-  createNamespace: true
+  install:
+    createNamespace: true
   values: 
     prometheus:
       ingress:
