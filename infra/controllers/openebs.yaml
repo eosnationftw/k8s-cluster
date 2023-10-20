@@ -25,4 +25,5 @@ spec:
         kind: HelmRepository
         name: openebs
   targetNamespace: openebs
-  createNamespace: true
+  install:
+    createNamespace: true

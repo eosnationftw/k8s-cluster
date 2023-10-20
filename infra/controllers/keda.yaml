@@ -25,7 +25,8 @@ spec:
         kind: HelmRepository
         name: keda
   targetNamespace: keda
-  createNamespace: true
+  install:
+    createNamespace: true
   values:
     prometheus:
       metricServer:
