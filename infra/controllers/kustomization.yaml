@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - weave.yaml                    # Flux dashboard
   - traefik.yaml                  # Ingress controller
-  # - prometheus.yaml               # Metrics
+  - prometheus.yaml               # Metrics
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
