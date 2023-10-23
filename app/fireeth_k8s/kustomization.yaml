@@ -1,6 +1,7 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: sf-ethereum
 resources:
   - setup
   - reader-node
@@ -10,8 +11,8 @@ resources:
   - firehose
   - nimbus
   - seaweedfs
-  - substreams-tier1
-  - substreams-tier2
+  # - substreams-tier1
+  # - substreams-tier2
 
 images:
   - name: fireeth
