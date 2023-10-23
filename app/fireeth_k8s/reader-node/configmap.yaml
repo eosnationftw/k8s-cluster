@@ -14,7 +14,7 @@ data:
         common-network-id: "1"
         log-to-file: false
         reader-node-log-to-zap: false
-        reader-node-arguments: "+--cache=8192 --maxpeers=100 --syncmode full --metrics --metrics.addr=0.0.0.0 --metrics.port=6061 --port=30310 --discovery.port=30310 --http --http.port=8545 --authrpc.port=8547 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/var/lib/jwt-eth/jwt.hex --snapshot=true --txlookuplimit=1000 --nat=extip:51.81.57.78"
+        reader-node-arguments: "+--cache=8192 --maxpeers=100 --syncmode full --metrics --metrics.addr=0.0.0.0 --metrics.port=6061 --port=30310 --discovery.port=30310 --http --http.port=8545 --authrpc.port=8547 --authrpc.addr=0.0.0.0 --authrpc.vhosts=* --authrpc.jwtsecret=/var/lib/jwt-eth/jwt.hex --snapshot=true --txlookuplimit=1000 --nat=extip:51.81.57.78 --verbosity 3"
         reader-node-data-dir: "/var/lib/geth"
         data-dir: "/var/lib/fireeth"
         common-one-block-store-url: "s3://seaweedfs:8333/fireeth-one-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
