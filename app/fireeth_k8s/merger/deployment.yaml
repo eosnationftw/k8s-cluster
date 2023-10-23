@@ -27,9 +27,9 @@ spec:
             - containerPort: 30310
               protocol: TCP
               name: eth66-tcp
-            - containerPort: 8547
+            - name: eth-consensus
+              containerPort: 8547
               protocol: TCP
-              name: eth-consensus
             - name: prom
               containerPort: 9102
               protocol: TCP

@@ -7,6 +7,10 @@ spec:
   selector:
     app: merger
   ports:
+    - name: eth-consensus
+      port: 8547
+      protocol: TCP
+      targetPort: eth-consensus
     - name: prom
       port: 9102
       protocol: TCP
