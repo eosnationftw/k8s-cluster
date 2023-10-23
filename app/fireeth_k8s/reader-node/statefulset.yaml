@@ -20,10 +20,10 @@ spec:
           - "start"
           - "-c"
           - "/config/config.yaml"
-        # lifecycle:
-        #   preStop:
-        #     exec:
-        #       command: ["/usr/local/bin/eth-maintenance"]
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/usr/local/bin/eth-maintenance"]
         ports:
           - name: eth66-udp
             containerPort: 30310
