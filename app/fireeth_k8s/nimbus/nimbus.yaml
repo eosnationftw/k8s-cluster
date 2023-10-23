@@ -26,26 +26,31 @@ spec:
   values:
     image:
       tag: multiarch-v23.9.0
+
     nimbus:
-      extraLables: 
-        app: nimbus
       executionClientUrl: http://eth-consensus:8547
       jwt:
         existingSecret:
           name: jwt
           key: jwt.hex
+
       p2pNodePort:  
         enabled: true
+        port: 31000
+      
       trustedNodeSync:
         enabled: true
         trustedNodeUrl: https://beaconstate.info
+
       volumeClaimSpec:
         storageClassName: openebs-hostpath
         resources:
           requests:
             storage: 300Gi
+
     prometheus:
       serviceMonitors:
         enabled: true
+
     grafana:
       dashboards: true
