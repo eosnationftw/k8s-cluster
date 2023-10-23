@@ -1,11 +1,4 @@
 #!/bin/bash
-# Note: This script must be run as root
-# Make sure those steps are done before running this script:
-# Download the Google Cloud public signing key
-#curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
-# Add the Kubernetes apt repository
-#echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
 # Stop script on error
 set -e
 
