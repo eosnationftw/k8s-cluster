@@ -1,6 +1,7 @@
-apiVersion: apps/v1
+apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
 kind: Deployment
 metadata:
+  # This name uniquely identifies the Deployment
   name: seaweedfs
 spec:
   selector:
@@ -11,6 +12,7 @@ spec:
   template:
     metadata:
       labels:
+        # Label is used as selector in the service.
         app: seaweedfs
     spec:
       # Refer to the PVC created earlier
@@ -41,5 +43,5 @@ spec:
           #         [
           #           "/bin/sh",
           #           "-c",
-          #           'echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-one-blocks" |weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell && echo "s3.bucket.create -name fireeth-index" | weed shell && echo "s3.bucket.create -name fireeth-state" | weed shell'
+          #           'echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell && echo "s3.bucket.create -name fireeth-index" | weed shell && echo "s3.bucket.create -name fireeth-state" | weed shell'
           #         ]

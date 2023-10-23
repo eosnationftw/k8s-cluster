@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firehose
+spec:
+  selector:
+    matchLabels:
+      app: firehose
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firehose
+    spec:
+      containers:
+        - name: firehose
+          image: fireeth
+          args:
+            - "start"
+            - "-c"
+            - "/config/config.yaml"
+          ports:
+            - name: grpc
+              containerPort: 13042
+              protocol: TCP
+            - name: prom
+              containerPort: 9102
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: firehose-config

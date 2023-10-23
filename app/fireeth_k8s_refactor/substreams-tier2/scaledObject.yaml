@@ -1,0 +1,18 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: substreams-tier2-scaler
+spec:
+  scaleTargetRef:
+    name: substreams-tier2
+  pollingInterval:  5                                       # Optional. Default: 30 seconds
+  cooldownPeriod:   30                                      # Optional. Default: 300 seconds
+  minReplicaCount:  1                                       # Optional. Default: 0
+  maxReplicaCount:  10
+  triggers:
+  - type: prometheus
+    metadata:
+      serverAddress: http://kube-prometheus-stack-prometheus.monitoring:9090
+      metricName: substreams_block_process_start_counter
+      threshold: "5"
+      query: rate(substreams_block_process_start_counter{container="substreams-tier2"}[1m])

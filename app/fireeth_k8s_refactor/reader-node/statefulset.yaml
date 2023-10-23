@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: reader-node
+spec:
+  selector:
+    matchLabels:
+      app: reader-node
+  serviceName: reader-node
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: reader-node
+    spec:
+      containers:
+      - name: reader-node
+        image: fireeth
+        args:
+          - "start"
+          - "-c"
+          - "/config/config.yaml"
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/usr/local/bin/eth-maintenance"]
+        ports:
+          - name: eth66-udp
+            containerPort: 30310
+            protocol: UDP
+          - name: eth66-tcp
+            containerPort: 30310
+            protocol: TCP
+          - name: eth-consensus
+            containerPort: 8547
+            protocol: TCP
+          - name: prometheus-fh
+            containerPort: 9102
+            protocol: TCP
+          - name: prometheus-geth
+            containerPort: 6061
+            protocol: TCP
+          - name: fh-grpc
+            containerPort: 13010
+            protocol: TCP
+          - name: fh-node-mgr
+            containerPort: 13009
+            protocol: TCP
+        volumeMounts:
+          - name: reader
+            mountPath: "/var/lib/fireeth"
+          - name: reader-node
+            mountPath: "/var/lib/geth"
+          - name: jwt
+            mountPath: /var/lib/jwt-eth
+          - name: config-volume
+            mountPath: /config
+      volumes:
+        - name: reader
+          persistentVolumeClaim:
+            claimName: reader
+        - name: reader-node
+          persistentVolumeClaim:
+            claimName: reader-node
+        - name: jwt
+          secret:
+            secretName: jwt
+            items:
+              - key: jwt.hex
+                path: jwt.hex
+        - name: config-volume
+          configMap:
+            name: reader-config
+      terminationGracePeriodSeconds: 60

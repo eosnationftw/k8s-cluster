@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seaweedfs
+spec:
+  selector:
+    matchLabels:
+      app: seaweedfs
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: seaweedfs
+    spec:
+      # Refer to the PVC created earlier
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            # Name of the PVC created earlier
+            claimName: seaweedfs-fh-blocks
+      containers:
+        - name: seaweedfs
+          # Pulls the default Minio image from Docker Hub
+          image: chrislusf/seaweedfs:3.45
+          args:
+            - server
+            - -s3
+          ports:
+            - name: s3
+              containerPort: 8333
+              hostPort: 8333
+          # Mount the volume into the pod
+          volumeMounts:
+            - name: storage # must match the volume name, above
+              mountPath: "/data"
+          # lifecycle:
+          #   postStart:
+          #     exec:
+          #       command:
+          #         [
+          #           "/bin/sh",
+          #           "-c",
+          #           'echo "s3.bucket.create -name fireeth-merged-blocks" | weed shell && echo "s3.bucket.create -name fireeth-one-blocks" |weed shell && echo "s3.bucket.create -name fireeth-forked-blocks" | weed shell && echo "s3.bucket.create -name fireeth-index" | weed shell && echo "s3.bucket.create -name fireeth-state" | weed shell'
+          #         ]

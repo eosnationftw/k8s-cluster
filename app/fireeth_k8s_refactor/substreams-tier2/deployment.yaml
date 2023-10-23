@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: substreams-tier2
+spec:
+  selector:
+    matchLabels:
+      app: substreams-tier2
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: substreams-tier2
+    spec:
+      containers:
+        - name: substreams-tier2
+          image: fireeth
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "750m"
+          args:
+            - "start"
+            - "-c"
+            - "/config/config.yaml"
+          ports:
+            - name: grpc
+              containerPort: 13045
+              protocol: TCP
+            - name: prom
+              containerPort: 9102
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: substreams-tier2-config

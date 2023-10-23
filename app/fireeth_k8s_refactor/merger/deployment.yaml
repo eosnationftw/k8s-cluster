@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: merger
+spec:
+  selector:
+    matchLabels:
+      app: merger
+  serviceName: merger
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: merger
+    spec:
+      containers:
+        - name: merger
+          image: fireeth
+          args:
+            - "start"
+            - "-c"
+            - "/config/config.yaml"
+          ports:
+            - containerPort: 30310
+              protocol: UDP
+              name: eth66-udp
+            - containerPort: 30310
+              protocol: TCP
+              name: eth66-tcp
+            - name: eth-consensus
+              containerPort: 8547
+              protocol: TCP
+            - name: prom
+              containerPort: 9102
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: merger-config
