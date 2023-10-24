@@ -31,12 +31,14 @@ spec:
     prometheus:
       ingress:
         enabled: true
-        ingressClassName: traefik
+        # ingressClassName: traefik
+        ingressClassName: nginx
         path: /prometheus
         pathType: Prefix
     grafana:
       ingress:
         enabled: true
-        ingressClassName: traefik
+        # ingressClassName: traefik
+        ingressClassName: nginx
         path: /grafana
         pathType: Prefix
