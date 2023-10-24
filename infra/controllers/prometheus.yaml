@@ -27,6 +27,7 @@ spec:
   targetNamespace: monitoring
   install:
     createNamespace: true
+
   values: 
     prometheus:
       ingress:
@@ -45,3 +46,26 @@ spec:
         ingressClassName: nginx
         path: /grafana
         pathType: Prefix
+      # Data sources to have traces and logs
+      additionalDataSources:
+        - name: Tempo
+          type: tempo
+          access: browser
+          uid: tempo
+          isDefault: false
+          editable: true
+          url: http://monitoring-tempo.monitoring:3100
+        - name: Loki
+          type: loki
+          access: browser
+          uid: loki
+          isDefault: false
+          editable: true
+          url: http://monitoring-loki.monitoring:3100
+          jsonData:
+          derivedFields:
+            - datasourceName: Tempo
+              matcherRegex: "traceID=(\\w+)"
+              name: TraceID
+              url: "$${__value.raw}"
+              datasourceUid: tempo
