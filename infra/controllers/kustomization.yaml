@@ -6,5 +6,7 @@ resources:
   - prometheus.yaml               # Metrics
   - loki.yaml                     # Logs
   - tempo.yaml                    # Traces
+  - odigos.yaml                   # Instrumentation
+  # - otel.yaml                     # OpenTelemetry
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling

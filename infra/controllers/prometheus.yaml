@@ -35,6 +35,9 @@ spec:
         ingressClassName: nginx
         path: /prometheus
         pathType: Prefix
+      prometheusSpec:
+        enableFeatures:
+          - remote-write-receiver
     grafana:
       ingress:
         enabled: true

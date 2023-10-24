@@ -3,3 +3,4 @@ kind: Kustomization
 resources: 
 # - namespaces.yaml
 # - fireeth_k8s
+- bank-athnos.yaml
