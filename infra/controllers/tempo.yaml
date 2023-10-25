@@ -32,5 +32,6 @@ spec:
       extraArgs:
         distributor.log-received-traces: true
     config: |
-      service_graphs:
-        enabled: true
+      - name: default
+        service_graphs:
+          enabled: true
