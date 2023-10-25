@@ -35,7 +35,6 @@ spec:
         # ingressClassName: traefik
         ingressClassName: nginx
         path: /prometheus
-        pathType: Prefix
       prometheusSpec:
         enableFeatures:
           - remote-write-receiver
@@ -45,7 +44,6 @@ spec:
         # ingressClassName: traefik
         ingressClassName: nginx
         path: /grafana
-        pathType: Prefix
       # Data sources to have traces and logs
       additionalDataSources:
         - name: Tempo
@@ -54,6 +52,8 @@ spec:
           uid: tempo
           isDefault: false
           editable: true
+          service_graphs:
+            enabled: true
           url: http://monitoring-tempo.monitoring:3100
         - name: Loki
           type: loki

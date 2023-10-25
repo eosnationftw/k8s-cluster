@@ -31,7 +31,3 @@ spec:
     tempo:
       extraArgs:
         distributor.log-received-traces: true
-    config: |
-      - name: default
-        service_graphs:
-          enabled: true
