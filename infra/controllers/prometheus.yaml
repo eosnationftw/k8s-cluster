@@ -45,13 +45,6 @@ spec:
         ingressClassName: nginx
         path: /grafana
       # Data sources to have traces and logs
-      sidecar:
-        datasources:
-          enabled: true
-          defaultDatasourceEnabled: true
-          isDefaultDatasource: true
-          uid: prometheus
-          url: http://monitoring-prometheus-kube-prometheus:9090
       additionalDataSources:
         - name: Tempo
           type: tempo

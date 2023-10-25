@@ -3,9 +3,9 @@ kind: Kustomization
 resources:
   - weave.yaml                    # Flux dashboard
   # - traefik.yaml                  # Ingress controller
-  - prometheus.yaml               # Metrics
   - loki.yaml                     # Logs
   - tempo.yaml                    # Traces
+  - prometheus.yaml               # Metrics
   - odigos.yaml                   # Instrumentation
   - otel.yaml                     # OpenTelemetry
   - fluent.yaml                   # K8s logs transmission
