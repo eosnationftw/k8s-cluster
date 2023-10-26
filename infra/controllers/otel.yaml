@@ -40,6 +40,8 @@ spec:
           traces:
             receivers: [otlp]
             exporters: [otlp]
+          metrics: null
+          logs: null
     service:
       type: ClusterIP
     
