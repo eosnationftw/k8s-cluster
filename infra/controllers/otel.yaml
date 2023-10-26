@@ -27,6 +27,23 @@ spec:
   targetNamespace: monitoring
   install:
     createNamespace: true
+
   values:
-    mode: deployment
+    mode: daemonset
+    config:
+      reveivers:
+        jaeger: null
+        prometheus: null
+        zipkin: null
+      service:
+        pipelines:
+          traces:
+            receivers: [otlp]
+            exporters: [otlp]
+      exporters:
+        otlphttp:
+          endpoint: monitoring-tempo.monitoring:3100
+          insecure: true
+    service:
+      type: ClusterIP
     
