@@ -38,8 +38,8 @@ spec:
       service:
         pipelines:
           traces:
-            receivers: [otlp]
-            exporters: [otlp]
+            receivers:
+              - otlp
           metrics: null
           logs: null
     service:
