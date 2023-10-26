@@ -31,7 +31,7 @@ spec:
   values:
     mode: daemonset
     config:
-      reveivers:
+      receivers:
         jaeger: null
         prometheus: null
         zipkin: null
@@ -40,10 +40,6 @@ spec:
           traces:
             receivers: [otlp]
             exporters: [otlp]
-      exporters:
-        otlphttp:
-          endpoint: monitoring-tempo.monitoring:3100
-          insecure: true
     service:
       type: ClusterIP
     
