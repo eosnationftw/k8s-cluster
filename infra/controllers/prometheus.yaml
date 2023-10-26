@@ -32,8 +32,8 @@ spec:
     prometheus:
       ingress:
         enabled: true
-        # ingressClassName: traefik
-        ingressClassName: nginx
+        ingressClassName: traefik
+        # ingressClassName: nginx
         path: /prometheus
       prometheusSpec:
         enableFeatures:
@@ -41,8 +41,8 @@ spec:
     grafana:
       ingress:
         enabled: true
-        # ingressClassName: traefik
-        ingressClassName: nginx
+        ingressClassName: traefik
+        # ingressClassName: nginx
         path: /grafana
       # Data sources to have traces and logs
       additionalDataSources:
