@@ -8,14 +8,14 @@ spec:
   chart:
     spec:
       chart: nimbus
-      version: 0.5.2
+      version: 0.5.3
       sourceRef:
         kind: HelmRepository
         name: nimbus-repo
   interval: 5m
   values:
     image:
-      tag: multiarch-v23.9.0
+      tag: multiarch-v23.9.1
 
     nimbus:
       executionClientUrl: http://eth-consensus:8547
