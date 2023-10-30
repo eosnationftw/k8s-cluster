@@ -33,15 +33,23 @@ spec:
     config:
       receivers:
         jaeger: null
+        otlp: null
         prometheus: null
         zipkin: null
+        tempo:
+          protocols:
+            http:
+              endpoint: 0.0.0.0:4318
+      exporters:
+        tempo:
+          endpoint: http://monitoring-tempo:3100
       service:
         pipelines:
           traces:
             receivers:
-              - otlp
+              - tempo
+            exporters:
+              - tempo
           metrics: null
           logs: null
-    service:
-      type: ClusterIP
     

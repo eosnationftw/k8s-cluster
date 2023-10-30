@@ -30,9 +30,9 @@ spec:
             - name: prom
               containerPort: 9102
               protocol: TCP
-          env:
-            - name: SF_TRACING
-              value: "stdout://"
+          # env:
+          #   - name: SF_TRACING
+          #     value: "otelcol://:4318"
           volumeMounts:
             - name: config-volume
               mountPath: /config
