@@ -40,7 +40,7 @@ spec:
             http:
               endpoint: 0.0.0.0:4318
       exporters:
-        htlphttp:
+        otlphttp:
           endpoint: http://monitoring-tempo:3100
       service:
         pipelines:
