@@ -51,7 +51,9 @@ spec:
               - otlphttp
           metrics: null
           logs: null
-    ports:
-      otlp:
-        nodePort: 30317
+    # ports:
+    #   otlp:
+    #     nodePort: 30317
+    service:
+      type: NodePort
     
