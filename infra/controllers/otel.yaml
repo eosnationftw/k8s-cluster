@@ -46,9 +46,9 @@ spec:
         pipelines:
           traces:
             receivers:
-              - tempo
+              - otlp
             exporters:
-              - tempo
+              - otlphttp
           metrics: null
           logs: null
     
