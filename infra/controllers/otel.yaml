@@ -29,7 +29,7 @@ spec:
     createNamespace: true
 
   values:
-    mode: daemonset
+    mode: deployment
     config:
       receivers:
         jaeger: null
