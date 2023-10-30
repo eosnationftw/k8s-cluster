@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: jwt
-  namespace: sf-ethereum
-type: Opaque
-data:
-  # Generated from openssl rand -hex 32, then encoded with base64
-  jwt.hex: OTk1NTU2NTQ5OWFmYzg2ZTE1MWI2MWJiMDRhNGE2ZThhOWQ0YTk5Zjk0MTZmNDRiNmJmMWIyZTU0ZGY1NDJhZQo=

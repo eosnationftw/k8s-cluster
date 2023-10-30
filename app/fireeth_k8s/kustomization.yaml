@@ -11,8 +11,8 @@ resources:
   - firehose
   - nimbus
   - seaweedfs
-  - substreams-tier1
-  - substreams-tier2
+  # - substreams-tier1
+  # - substreams-tier2
 
 images:
   - name: fireeth
