@@ -53,11 +53,5 @@ spec:
           logs: null
     ports:
       otlp:
-        enabled: true
-        containerPort: 4317
-        servicePort: 4317
-        hostPort: 4317
-        protocol: TCP
         nodePort: 30317
-        appProtocol: grpc
     
