@@ -56,4 +56,6 @@ spec:
     #     nodePort: 30317
     service:
       type: NodePort
+      port: 4317
+      nodePort: 30317
     
