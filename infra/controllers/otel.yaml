@@ -33,15 +33,14 @@ spec:
     config:
       receivers:
         jaeger: null
-        otlp: null
         prometheus: null
         zipkin: null
-        tempo:
+        otlp:
           protocols:
             http:
               endpoint: 0.0.0.0:4318
       exporters:
-        tempo:
+        htlphttp:
           endpoint: http://monitoring-tempo:3100
       service:
         pipelines:
