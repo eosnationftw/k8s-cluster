@@ -28,7 +28,7 @@ spec:
               protocol: TCP
           env:
             - name: SF_TRACING
-              value: "otelcol://monitoring-otel-opentelemetry-collector:4317"
+              value: "otelcol://dom84.mar.eosn.io:30317"
           volumeMounts:
             - name: config-volume
               mountPath: /config
