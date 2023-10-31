@@ -40,8 +40,8 @@ spec:
             grpc:
               endpoint: 0.0.0.0:4317
       exporters:
-        otlphttp:
-          endpoint: http://monitoring-tempo:4318
+        otlp:
+          endpoint: http://monitoring-tempo:4317
       processors:
         batch:
           send_batch_size: 10000
@@ -55,7 +55,7 @@ spec:
               - memory_limiter
               - batch
             exporters:
-              - otlphttp
+              - otlp
           metrics: null
           logs: null
     service:
