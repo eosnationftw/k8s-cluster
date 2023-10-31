@@ -40,7 +40,7 @@ spec:
             grpc:
               endpoint: 0.0.0.0:4317
       exporters:
-        otlphttp:
+        otlp:
           endpoint: http://monitoring-tempo:4317
       processors:
         batch:
