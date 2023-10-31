@@ -19,18 +19,11 @@ spec:
   interval: 6h
   chart:
     spec:
-      chart: tempo-distributed
-      version: "1.6.13"
+      chart: tempo
+      version: "1.6.3"
       sourceRef:
         kind: HelmRepository
         name: tempo
   targetNamespace: monitoring
   install:
     createNamespace: true
-  values: 
-    traces:
-      otlp:
-        grpc:
-          enabled: true
-    gateway:
-      enabled: true
