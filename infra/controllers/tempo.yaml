@@ -32,3 +32,5 @@ spec:
       otlp:
         grpc:
           enabled: true
+    gateway:
+      enabled: true
