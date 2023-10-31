@@ -41,7 +41,7 @@ spec:
               endpoint: 0.0.0.0:4317
       exporters:
         otlp:
-          endpoint: http://monitoring-tempo:3100
+          endpoint: http://monitoring-tempo-gateway:80
       service:
         pipelines:
           traces:
