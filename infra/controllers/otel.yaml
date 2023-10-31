@@ -55,7 +55,7 @@ spec:
               - memory_limiter
               - batch
             exporters:
-              - otlphttp
+              - otlp
           metrics: null
           logs: null
     service:
