@@ -40,20 +40,17 @@ spec:
             grpc:
               endpoint: 0.0.0.0:4317
       exporters:
-        otlp:
-          endpoint: http://monitoring-tempo-gateway:80
+        otlphttp:
+          endpoint: https://monitoring-tempo-gateway:80
       service:
         pipelines:
           traces:
             receivers:
               - otlp
             exporters:
-              - otlp
+              - otlphttp
           metrics: null
           logs: null
-    # ports:
-    #   otlp:
-    #     nodePort: 30317
     service:
       type: NodePort
     
