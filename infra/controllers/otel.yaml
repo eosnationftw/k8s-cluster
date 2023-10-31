@@ -41,7 +41,7 @@ spec:
               endpoint: 0.0.0.0:4317
       exporters:
         otlphttp:
-          endpoint: http://monitoring-tempo-gateway:80
+          endpoint: http://monitoring-tempo:4317
       processors:
         batch:
           send_batch_size: 10000
