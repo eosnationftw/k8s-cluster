@@ -42,6 +42,10 @@ spec:
       exporters:
         otlphttp:
           endpoint: http://monitoring-tempo-gateway:80
+      processors:
+        batch:
+          send_batch_size: 10000
+          timeout: 2000ms
       service:
         pipelines:
           traces:
