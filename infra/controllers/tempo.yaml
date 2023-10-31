@@ -19,8 +19,8 @@ spec:
   interval: 6h
   chart:
     spec:
-      chart: tempo
-      version: "1.6.3"
+      chart: tempo-distributed
+      version: "1.6.13"
       sourceRef:
         kind: HelmRepository
         name: tempo
@@ -28,6 +28,13 @@ spec:
   install:
     createNamespace: true
   values: 
-    tempo:
-      extraArgs:
-        distributor.log-received-traces: true
+    metaMonitoring:
+      serviceMonitor:
+        enabled: true
+      grafanaAgent:
+        enabled: true
+        installOperator: true
+    traces:
+      otlp:
+        grpc:
+          enabled: true
