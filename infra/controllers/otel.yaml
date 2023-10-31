@@ -42,6 +42,8 @@ spec:
       exporters:
         otlp:
           endpoint: monitoring-tempo:4317
+          tls:
+            insecure: true
       processors:
         batch:
           send_batch_size: 10000
