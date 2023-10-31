@@ -28,12 +28,6 @@ spec:
   install:
     createNamespace: true
   values: 
-    metaMonitoring:
-      serviceMonitor:
-        enabled: true
-      grafanaAgent:
-        enabled: true
-        installOperator: true
     traces:
       otlp:
         grpc:
