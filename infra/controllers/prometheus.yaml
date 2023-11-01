@@ -38,9 +38,6 @@ spec:
       prometheusSpec:
         enableFeatures:
           - remote-write-receiver
-    sidecar:
-      datasources:
-        enabled: false
     grafana:
       ingress:
         enabled: true
@@ -48,6 +45,9 @@ spec:
         # ingressClassName: nginx
         path: /grafana
       # Data sources to have traces and logs
+      sidecar:
+        datasources:
+          enabled: false
       additionalDataSources:
       - name: Prometheus
         type: prometheus
