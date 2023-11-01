@@ -45,9 +45,9 @@ spec:
         # ingressClassName: nginx
         path: /grafana
       # Data sources to have traces and logs
-      sidecar:
-        datasources:
-          enabled: false
+      # sidecar:
+      #   datasources:
+      #     enabled: false
       additionalDataSources:
         - name: Prometheus
           type: prometheus
