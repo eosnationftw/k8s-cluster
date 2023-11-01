@@ -46,21 +46,21 @@ spec:
         path: /grafana
       # Data sources to have traces and logs
       additionalDataSources:
-        # - name: Loki
-        #   type: loki
-        #   uid: Loki
-        #   access: proxy
-        #   url: http://monitoring-loki:3100
-        #   correlations:
-        #   - targetUID: Tempo
-        #     label: "Tempo traces"
-        #     description: "Related traces stored in Tempo"
-        #   jsonData:
-        #     derivedFields:
-        #       - name: "traceID"
-        #         matcherRegex: "trace_id=(\\w+)"
-        #         url: "$${__value.raw}"
-        #         datasourceUid: Tempo
+        - name: Loki
+          type: loki
+          uid: Loki
+          access: proxy
+          url: http://monitoring-loki:3100
+          correlations:
+          - targetUID: Tempo
+            label: "Tempo traces"
+            description: "Related traces stored in Tempo"
+          jsonData:
+            derivedFields:
+              - name: "traceID"
+                matcherRegex: "trace_id=(\\w+)"
+                url: "$${__value.raw}"
+                datasourceUid: Tempo
         - name: Tempo
           type: tempo
           uid: Tempo

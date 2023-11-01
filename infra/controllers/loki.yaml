@@ -31,22 +31,3 @@ spec:
     loki:
       enabled: true
       isDefault: false
-      url: http://monitoring-loki:3100
-      readinessProbe:
-        httpGet:
-          path: /ready
-          port: http-metrics
-        initialDelaySeconds: 45
-      livenessProbe:
-        httpGet:
-          path: /ready
-          port: http-metrics
-        initialDelaySeconds: 45
-      datasource:
-        jsonData: 
-          derivedFields: |
-            name: "traceID"
-            matcherRegex: "trace_id=(\\w+)"
-            url: "$${__value.raw}"
-            datasourceUid: Tempo
-        uid: "Loki"
