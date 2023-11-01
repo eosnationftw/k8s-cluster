@@ -44,13 +44,9 @@ spec:
         initialDelaySeconds: 45
       datasource:
         jsonData: 
-          derivedFields:
-            - name: "traceID"
-              matcherRegex: "trace_id=(\\w+)"
-              url: "$${__value.raw}"
-              datasourceUid: Tempo
+          derivedFields: |
+            name: "traceID"
+            matcherRegex: "trace_id=(\\w+)"
+            url: "$${__value.raw}"
+            datasourceUid: Tempo
         uid: "Loki"
-        correlations:
-          - targetUID: Tempo
-            label: "Tempo traces"
-            description: "Related traces stored in Tempo"
