@@ -54,7 +54,7 @@ spec:
           uid: Prometheus
           url: http://monitoring-prometheus-kube-prometheus:9090
           access: proxy
-          isDefault: true
+          isDefault: false
           jsonData:
             httpMethod: POST
             exemplarTraceIdDestinations:
@@ -64,6 +64,7 @@ spec:
           type: loki
           uid: Loki
           access: proxy
+          isDefault: false
           url: http://monitoring-loki:3100
           correlations:
           - targetUID: Tempo
@@ -79,6 +80,7 @@ spec:
           type: tempo
           uid: Tempo
           access: proxy
+          isDefault: false
           url: http://monitoring-tempo:3100
           jsonData:
             httpMethod: GET
