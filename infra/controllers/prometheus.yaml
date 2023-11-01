@@ -38,6 +38,9 @@ spec:
       prometheusSpec:
         enableFeatures:
           - remote-write-receiver
+    sidecar:
+      datasources:
+        enabled: false
     grafana:
       ingress:
         enabled: true
@@ -46,26 +49,53 @@ spec:
         path: /grafana
       # Data sources to have traces and logs
       additionalDataSources:
-        - name: Tempo
-          type: tempo
-          access: browser
-          uid: tempo
-          isDefault: false
-          editable: true
-          service_graphs:
-            enabled: true
-          url: http://monitoring-tempo.monitoring:3100
-        - name: Loki
-          type: loki
-          access: browser
-          uid: loki
-          isDefault: false
-          editable: true
-          url: http://monitoring-loki.monitoring:3100
-          jsonData:
+      - name: Prometheus
+        type: prometheus
+        uid: Prometheus
+        url: http://monitoring-prometheus-kube-prometheus:9090
+        access: proxy
+        isDefault: true
+        jsonData:
+          httpMethod: POST
+          exemplarTraceIdDestinations:
+          - datasourceUid: Tempo
+            name: traceID
+      - name: Loki
+        type: loki
+        uid: Loki
+        access: proxy
+        url: http://monitoring-loki:3100
+        correlations:
+        - targetUID: Tempo
+          label: "Tempo traces"
+          description: "Related traces stored in Tempo"
+        jsonData:
           derivedFields:
-            - datasourceName: Tempo
-              matcherRegex: "traceID=(\\w+)"
-              name: TraceID
-              url: "$${__value.raw}"
-              datasourceUid: tempo
+          - name: "traceID"
+            matcherRegex: "trace_id=(\\w+)"
+            url: "$${__value.raw}"
+            datasourceUid: Tempo
+      - name: Tempo
+        type: tempo
+        uid: Tempo
+        access: proxy
+        url: http://monitoring-tempo:3100
+        jsonData:
+          httpMethod: GET
+          tracesToLogs:
+            datasourceUid: 'Loki'
+            tags: ['k8s.pod.name']
+            mappedTags: [{ key: 'k8s.pod.name', value: 'k8s_pod_name' }]
+            mapTagNamesEnabled: true
+            spanStartTimeShift: '-1h'
+            spanEndTimeShift: '1h'
+            filterByTraceID: true
+            filterBySpanID: false
+          serviceMap:
+            datasourceUid: 'Prometheus'
+          search:
+            hide: false
+          nodeGraph:
+            enabled: true
+          lokiSearch:
+            datasourceUid: 'Loki'
