@@ -1,0 +1,35 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: metallb
+  namespace: flux-system
+spec:
+  interval: 6h
+  url: https://metallb.github.io/metallb
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
+spec:
+  interval: 6h
+  chart:
+    spec:
+      chart: metallb
+      version: "0.13.12"
+      sourceRef:
+        kind: HelmRepository
+        name: metallb
+  targetNamespace: metallb
+  install:
+    createNamespace: true
+  values:
+    controller: 
+      labels:
+        pod-security.kubernetes.io/enforce: privileged
+        od-security.kubernetes.io/audit: privileged
+        od-security.kubernetes.io/warn: privileged

@@ -1,0 +1,65 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: otel
+  namespace: flux-system
+spec:
+  interval: 6h
+  url: https://open-telemetry.github.io/opentelemetry-helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: otel
+  namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
+spec:
+  interval: 6h
+  chart:
+    spec:
+      chart: opentelemetry-collector
+      version: "0.72.0"
+      sourceRef:
+        kind: HelmRepository
+        name: otel
+  targetNamespace: monitoring
+  install:
+    createNamespace: true
+
+  values:
+    mode: deployment
+    config:
+      receivers:
+        jaeger: null
+        prometheus: null
+        zipkin: null
+        otlp:
+          protocols:
+            grpc:
+              endpoint: 0.0.0.0:4317
+      exporters:
+        otlp:
+          endpoint: monitoring-tempo:4317
+          tls:
+            insecure: true
+      processors:
+        batch:
+          send_batch_size: 10000
+          timeout: 2000ms
+      service:
+        pipelines:
+          traces:
+            receivers:
+              - otlp
+            processors:
+              - memory_limiter
+              - batch
+            exporters:
+              - otlp
+          metrics: null
+          logs: null
+    service:
+      type: NodePort
+    

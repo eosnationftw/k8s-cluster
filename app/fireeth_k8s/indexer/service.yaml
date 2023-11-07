@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: indexer
+  name: indexer-svc
 spec:
   type: ClusterIP
   selector:

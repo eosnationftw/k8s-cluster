@@ -2,31 +2,33 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: kube-prometheus-stack
+  name: infra-controllers
   namespace: flux-system
 spec:
-  interval: 1h0m0s
-  path: ./monitoring/kube-prometheus-stack
-  prune: true
+  interval: 5m
+  retryInterval: 1m
+  timeout: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  timeout: 5m0s
+  path: ./infra/controllers
+  prune: true
   wait: true
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: monitoring-config
+  name: infra-configs
   namespace: flux-system
 spec:
   dependsOn:
-    - name: kube-prometheus-stack
-  interval: 1h0m0s
-  path: ./monitoring/config
-  prune: true
+    - name: infra-controllers
+  interval: 5m
+  retryInterval: 1m
+  timeout: 5m
   sourceRef:
     kind: GitRepository
     name: flux-system
-  timeout: 1m0s
+  path: ./infra/configs
+  prune: true
   wait: true

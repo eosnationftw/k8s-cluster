@@ -1,28 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: firehose
+  name: merger
 spec:
   selector:
     matchLabels:
-      app: firehose
+      app: merger
+  serviceName: merger
   replicas: 1
   template:
     metadata:
       labels:
-        app: firehose
+        app: merger
     spec:
       containers:
-        - name: firehose
+        - name: merger
           image: fireeth
           args:
             - "start"
             - "-c"
             - "/config/config.yaml"
           ports:
-            - name: grpc
-              containerPort: 13042
+            - containerPort: 30310
+              protocol: UDP
+              name: eth66-udp
+            - containerPort: 30310
               protocol: TCP
+              name: eth66-tcp
+            - containerPort: 8547
+              protocol: TCP
+              name: eth-consensus
             - name: prom
               containerPort: 9102
               protocol: TCP
@@ -32,4 +39,4 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: firehose-config
+            name: merger-config

@@ -1,35 +1,42 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: firehose
+  name: substreams-tier2
 spec:
   selector:
     matchLabels:
-      app: firehose
+      app: substreams-tier2
   replicas: 1
   template:
     metadata:
       labels:
-        app: firehose
+        app: substreams-tier2
     spec:
       containers:
-        - name: firehose
+        - name: substreams-tier2
           image: fireeth
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "750m"
           args:
             - "start"
             - "-c"
             - "/config/config.yaml"
           ports:
             - name: grpc
-              containerPort: 13042
+              containerPort: 13045
               protocol: TCP
             - name: prom
               containerPort: 9102
               protocol: TCP
+          env:
+            - name: SF_TRACING
+              value: "otelcol://dom84.mar.eosn.io:32385"
           volumeMounts:
             - name: config-volume
               mountPath: /config
       volumes:
         - name: config-volume
           configMap:
-            name: firehose-config
+            name: substreams-tier2-config
