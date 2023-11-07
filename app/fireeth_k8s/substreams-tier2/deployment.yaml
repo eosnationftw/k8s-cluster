@@ -25,7 +25,8 @@ spec:
             - "/config/config.yaml"
           ports:
             - name: grpc
-              containerPort: 13045
+              # containerPort: 13045
+              containerPort: 9000
               protocol: TCP
             - name: prom
               containerPort: 9102
@@ -33,6 +34,18 @@ spec:
           env:
             - name: SF_TRACING
               value: "otelcol://dom84.mar.eosn.io:32385"
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: s3-secret
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: s3-secret
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: DSTORE_S3_BUFFERED_READ
+              value: "true"
           volumeMounts:
             - name: config-volume
               mountPath: /config

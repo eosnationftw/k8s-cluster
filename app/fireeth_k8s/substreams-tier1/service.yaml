@@ -8,7 +8,8 @@ spec:
     app: substreams-tier1
   ports:
     - name: grpc
-      port: 13044
+      # port: 13044
+      port: 9000
       protocol: TCP
       targetPort: grpc
       nodePort: 30044

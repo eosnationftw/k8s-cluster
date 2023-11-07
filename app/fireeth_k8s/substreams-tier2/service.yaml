@@ -8,7 +8,8 @@ spec:
     app: substreams-tier2
   ports:
     - name: grpc
-      port: 13045
+      # port: 13045
+      port: 9000
       protocol: TCP
       targetPort: grpc
     - name: prom

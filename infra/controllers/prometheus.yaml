@@ -30,21 +30,10 @@ spec:
 
   values: 
     prometheus:
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        # ingressClassName: nginx
-        path: /prometheus
       prometheusSpec:
         enableFeatures:
           - remote-write-receiver
     grafana:
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        # ingressClassName: nginx
-        path: /grafana
-      # Data sources to have traces and logs
       additionalDataSources:
         - name: Loki
           type: loki
