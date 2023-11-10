@@ -21,7 +21,7 @@ data:
         substreams-state-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-substreams-state?region=none&insecure=true
         # substreams-tier1-request-stats: true
         substreams-tier1-grpc-listen-addr: :9000
-        substreams-tier1-subrequests-endpoint: dns:///goerli-sf-substreams-tier2-v4.service.march.consul.eosn.io:9000
+        substreams-tier1-subrequests-endpoint: substreams-tier2:9000
 
 
         # verbose: 1

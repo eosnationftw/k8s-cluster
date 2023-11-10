@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: substreams-tier1
+  labels:
+    app: substreams-tier1
 spec:
   type: NodePort
   selector:
