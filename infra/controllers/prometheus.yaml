@@ -33,6 +33,10 @@ spec:
       prometheusSpec:
         enableFeatures:
           - remote-write-receiver
+    prometheus-node-exporter:
+      service:
+        portName: http-metrics
+        port: 6020
     # grafana:
     #   additionalDataSources:
     #     - name: Loki
