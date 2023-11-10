@@ -1,15 +1,15 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: reader-node
+  name: substreams-tier1
   labels:
-    app: reader-node
+    app: substreams-tier1
     serviceMonitorTarget: "true"
 spec:
-  jobLabel: reader-node
+  jobLabel: substreams-tier1
   selector:
     matchLabels:
-      app: reader-node
+      app: substreams-tier1
   endpoints:
   - port: prom
     path: /metrics
