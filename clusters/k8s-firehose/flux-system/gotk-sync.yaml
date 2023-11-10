@@ -8,10 +8,10 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: refactor
+    branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/coutug/k8s-firehose
+  url: ssh://git@github.com/eosnationftw/k8s-cluster
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
