@@ -4,6 +4,8 @@ metadata:
   name: substreams-tier1
   labels:
     app: substreams-tier1
+  annotations:
+    prometheus.io/scrape: "true"
 spec:
   type: NodePort
   selector:
