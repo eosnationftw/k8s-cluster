@@ -30,9 +30,9 @@ spec:
 
   values: 
     kubeControllerManager:
-      # enabled: true
-      # endpoints:
-      #   - 172.22.1.86
+      enabled: true
+      endpoints:
+        - 172.22.1.86
       serviceMonitor:
         https: false
         insecureSkipVerify: "true"
