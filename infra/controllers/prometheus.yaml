@@ -32,9 +32,9 @@ spec:
     kubeControllerManager:
       enabled: true
       endpoints:
-        - http://dom76.mar.eosn.io/
-        - http://dom86.mar.eosn.io/
-        - http://dom87.mar.eosn.io/
+        - 172.22.1.76
+        - 172.22.1.86
+        - 172.22.1.87
     prometheus:
       enabled: true
       prometheusSpec:
