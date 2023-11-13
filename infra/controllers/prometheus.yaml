@@ -29,6 +29,12 @@ spec:
     createNamespace: true
 
   values: 
+    kubeControllerManager:
+      enabled: true
+      endpoints:
+        - 172.22.1.76
+        - 172.22.1.86
+        - 172.22.1.87
     prometheus:
       enabled: true
       prometheusSpec:
