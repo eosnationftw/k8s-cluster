@@ -34,7 +34,8 @@ spec:
       endpoints:
         - 172.22.1.86
       serviceMonitor:
-        https: false
+        https: true
+        insecureSkipVerify: "true"
 
     # kubeEtcd:
     #   enabled: true
