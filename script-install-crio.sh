@@ -101,6 +101,13 @@ controllerManager:
   extraArgs:
     allocate-node-cidrs: "true"
     node-cidr-mask-size: "20"
+#     listen-metrics-urls: http://0.0.0.0:2381
+# scheduler:
+#   extraArgs:
+#     listen-metrics-urls: http://0.0.0.0:2382
+# etcd:
+#   extraArgs:
+#     listen-metrics-urls: http://0.0.0.0:2383
 kubernetesVersion: "v1.28.3"
 controlPlaneEndpoint: 172.22.1.86
 EOF
