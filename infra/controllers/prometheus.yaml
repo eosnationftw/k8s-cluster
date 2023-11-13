@@ -36,13 +36,10 @@ spec:
         serviceMonitorSelectorNilUsesHelmValues: false
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
-        retention: 6h
-        enableAdminAPI: true
-        walCompression: true
     prometheus-node-exporter:
       service:
         portName: http-metrics
-        port: 6020
+        port: 9020
     # grafana:
     #   additionalDataSources:
     #     - name: Loki
