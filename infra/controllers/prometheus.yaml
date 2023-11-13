@@ -45,7 +45,6 @@ spec:
         - 172.22.1.86
       service:
         port: 2383
-        targetPort: 2383
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -55,7 +54,6 @@ spec:
         - 172.22.1.86
       service:
         port: 2381
-        targetPort: 2381
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
