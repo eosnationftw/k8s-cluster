@@ -8,6 +8,6 @@ resources:
   # - odigos.yaml                   # Instrumentation
   # - otel.yaml                     # OpenTelemetry
   # - fluent.yaml                   # K8s logs transmission
-  # - prometheus.yaml               # Metrics
+  - prometheus.yaml               # Metrics
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
