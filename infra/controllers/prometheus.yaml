@@ -39,7 +39,7 @@ spec:
         retention: 6h
         enableAdminAPI: true
         walCompression: true
-        prometheus-node-exporter:
+    prometheus-node-exporter:
       service:
         portName: http-metrics
         port: 6020
