@@ -33,6 +33,23 @@ spec:
       enabled: true
       endpoints:
         - 172.22.1.86
+      serviceMonitor:
+        https: true
+        insecureSkipVerify: "true"
+
+    # kubeEtcd:
+    #   enabled: true
+    #   endpoints: # ips of servers
+    #     - 172.22.1.86
+    #   service:
+    #     enabled: true
+    #     port: 2381
+    #     targetPort: 2381
+    # kubeScheduler:
+    #   enabled: true
+    #   endpoints: # ips of servers
+    #     - 172.22.1.86
+
     prometheus:
       enabled: true
       prometheusSpec:
