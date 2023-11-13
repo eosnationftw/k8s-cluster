@@ -34,8 +34,7 @@ spec:
       endpoints:
         - 172.22.1.86
       service:
-        port: 2382
-        targetPort: 2382
+        # port: 2382
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -44,7 +43,7 @@ spec:
       endpoints:
         - 172.22.1.86
       service:
-        port: 2383
+        # port: 2383
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
