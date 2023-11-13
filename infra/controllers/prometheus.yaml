@@ -33,8 +33,6 @@ spec:
       enabled: true
       endpoints:
         - 172.22.1.86
-      service:
-        # port: 2382
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -42,8 +40,6 @@ spec:
       enabled: true
       endpoints:
         - 172.22.1.86
-      service:
-        # port: 2383
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
