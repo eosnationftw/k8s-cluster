@@ -1,12 +1,12 @@
-# apiVersion: traefik.io/v1alpha1
-# kind: Middleware
-# metadata:
-#   name: grafana-stripprefix
-# spec:
-#   stripPrefix:
-#     prefixes:
-#       - /grafana
-# ---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: grafana-stripprefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /grafana
+---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
@@ -16,10 +16,10 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/g`)
+    - match: PathPrefix(`/grafana`)
       kind: Rule
       services:
         - name: monitoring-prometheus-grafana
           port: 80
-    # middleware:
-    #   - name: grafana-stripprefix 
+      middleware:
+      - name: grafana-stripprefix
