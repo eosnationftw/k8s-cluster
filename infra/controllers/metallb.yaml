@@ -27,9 +27,7 @@ spec:
   targetNamespace: metallb
   install:
     createNamespace: true
-  values:
-    controller: 
-      labels:
-        pod-security.kubernetes.io/enforce: privileged
-        od-security.kubernetes.io/audit: privileged
-        od-security.kubernetes.io/warn: privileged
+  values: 
+    prometheus:
+      serviceMonitor:
+        enabled: true
