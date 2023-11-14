@@ -16,7 +16,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/`)
+    - match: PathPrefix(`/g`)
       kind: Rule
       services:
         - name: monitoring-prometheus-grafana
