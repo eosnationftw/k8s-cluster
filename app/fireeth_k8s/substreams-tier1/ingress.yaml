@@ -16,7 +16,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/tier1`)
+    - match: PathPrefix(`/`)
       kind: Rule
       services:
         - name: substreams-tier1
