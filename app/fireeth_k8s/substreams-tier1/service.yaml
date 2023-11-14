@@ -7,7 +7,6 @@ metadata:
   annotations:
     prometheus.io/scrape: "true"
 spec:
-  type: LoadBalancer
   selector:
     app: substreams-tier1
   ports:
@@ -15,7 +14,6 @@ spec:
       port: 9000
       protocol: TCP
       targetPort: grpc
-      nodePort: 30044
     - name: prom
       port: 9102
       protocol: TCP

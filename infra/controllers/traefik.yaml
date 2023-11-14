@@ -27,6 +27,3 @@ spec:
   targetNamespace: traefik
   install:
     createNamespace: true
-  values:
-    service:
-      type: NodePort
