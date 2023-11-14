@@ -18,7 +18,7 @@ spec:
     - match: PathPrefix(`/`)
       kind: Rule
       services:
-        - name: monitoring-prometheus-kube-prometheus
-          port: 9090
+        - name: monitoring-prometheus-grafana
+          port: 80
     # middleware:
     #   - name: grafana-stripprefix 
