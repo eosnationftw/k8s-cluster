@@ -15,7 +15,8 @@ spec:
   entryPoints:
     - web
   routes:
-    - kind: Rule
+    - match: PathPrefix(`/`)
+      kind: Rule
       services:
         - name: monitoring-prometheus-grafana
           port: 80
