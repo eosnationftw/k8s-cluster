@@ -27,7 +27,7 @@ spec:
   targetNamespace: metallb
   install:
     createNamespace: true
-  values: 
-    prometheus:
-      serviceMonitor:
-        enabled: true
+  # values: 
+  #   prometheus:
+  #     serviceMonitor:
+  #       enabled: true
