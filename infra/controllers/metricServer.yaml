@@ -1,0 +1,30 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: metrics-server
+  namespace: flux-system
+spec:
+  interval: 6h
+  url: https://kubernetes-sigs.github.io/metrics-server/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metrics-server
+  namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
+spec:
+  interval: 6h
+  chart:
+    spec:
+      chart: metrics-server
+      version: "3.11.0"
+      sourceRef:
+        kind: HelmRepository
+        name: metallb
+  targetNamespace: metallb
+  install:
+    createNamespace: true
+  values: []
