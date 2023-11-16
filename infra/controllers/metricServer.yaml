@@ -27,4 +27,6 @@ spec:
   targetNamespace: kube-system
   install:
     createNamespace: true
-  values: []
+  values:
+    hostNetwork:
+      enabled: true
