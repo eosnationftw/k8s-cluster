@@ -30,6 +30,6 @@ spec:
   values:
     # hostNetwork:
     #   enabled: true
-    defaultArgs: |
-      --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
-      --kubelet-insecure-tls
+    args:
+      - kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
+      - kubelet-insecure-tls
