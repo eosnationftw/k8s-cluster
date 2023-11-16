@@ -23,8 +23,8 @@ spec:
       version: "3.11.0"
       sourceRef:
         kind: HelmRepository
-        name: metallb
-  targetNamespace: metallb
+        name: metrics-server
+  targetNamespace: kube-system
   install:
     createNamespace: true
   values: []
