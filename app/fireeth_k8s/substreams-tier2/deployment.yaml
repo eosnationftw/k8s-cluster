@@ -18,7 +18,7 @@ spec:
           resources:
             requests:
               memory: "3Gi"
-              cpu: "1000m"
+              cpu: "3000m"
           args:
             - "start"
             - "-c"
