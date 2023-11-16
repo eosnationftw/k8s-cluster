@@ -17,8 +17,8 @@ spec:
           image: fireeth
           resources:
             requests:
-              memory: "1Gi"
-              cpu: "750m"
+              memory: "3Gi"
+              cpu: "1000m"
           args:
             - "start"
             - "-c"
