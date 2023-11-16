@@ -28,8 +28,6 @@ spec:
   install:
     createNamespace: true
   values:
-    # hostNetwork:
-    #   enabled: true
     args:
-      - kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
-      - kubelet-insecure-tls
+      - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
+      - --kubelet-insecure-tls
