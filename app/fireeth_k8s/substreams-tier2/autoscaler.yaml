@@ -14,7 +14,7 @@ spec:
       policies:
       - type: Pods
         value: 1
-        periodSeconds: 60
+        periodSeconds: 10
   metrics:
   - type: Resource
     resource:
