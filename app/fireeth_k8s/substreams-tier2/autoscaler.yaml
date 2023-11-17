@@ -10,11 +10,18 @@ spec:
   minReplicas: 1
   maxReplicas: 10
   behavior:
-    scaleDown:
+    scaleUp:
+      stabilizationWindowSeconds: 30
       policies:
       - type: Pods
         value: 1
-        periodSeconds: 10
+        periodSeconds: 15
+    scaleDown:
+      stabilizationWindowSeconds: 30
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 15
   metrics:
   - type: Resource
     resource:
