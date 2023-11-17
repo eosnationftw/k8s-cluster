@@ -28,7 +28,7 @@ spec:
   install:
     createNamespace: true
   values:
-    replicas: 3
+    replicas: 1
     args:
       - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
       - --kubelet-insecure-tls
