@@ -64,6 +64,12 @@ spec:
       service:
         portName: http-metrics
         port: 9020
+
+    grafana:
+      grafana.ini:
+        server:
+          root_url: "%(protocol)s://%(domain)s:/grafana"
+
     # grafana:
     #   additionalDataSources:
     #     - name: Loki
