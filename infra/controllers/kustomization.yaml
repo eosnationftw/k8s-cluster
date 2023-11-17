@@ -13,4 +13,4 @@ resources:
   - metricServer.yaml             # Metrics server
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
-  # - cilium.yaml                   # cilium install
+  - cilium.yaml                   # cilium install
