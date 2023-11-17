@@ -1,0 +1,22 @@
+hubble:
+  enabled: true
+  listenAddress: ":4244"
+  metrics:
+    enabled:
+      - dns
+      - drop
+      - tcp
+      - flow
+      - port-distribution
+      - icmp
+      - http
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+envoy:
+  enabled: true
+loadBalancer:
+  l7:
+    algorithm: least_request
+    backend: enabled
