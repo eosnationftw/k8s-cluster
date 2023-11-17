@@ -32,3 +32,4 @@ spec:
     args:
       - --kubelet-preferred-address-types=InternalDNS,InternalIP,ExternalDNS,ExternalIP,Hostname
       - --kubelet-insecure-tls
+      - --metric-resolution=5s
