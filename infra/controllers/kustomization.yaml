@@ -8,7 +8,7 @@ resources:
   # - otel.yaml                     # OpenTelemetry
   # - fluent.yaml                   # K8s logs transmission
   - traefik.yaml                  # Ingress controller
-  - prometheus.yaml               # Metrics
+  # - prometheus.yaml               # Metrics
   - metallb.yaml                  # Load balancer
   - metricServer.yaml             # Metrics server
   # - openebs.yaml                  # Dynamic storage
