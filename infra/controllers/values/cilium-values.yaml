@@ -44,6 +44,9 @@ prometheus:
   enabled: true
   serviceMonitor:
     enabled: true
+    spec:
+      endpoints:
+        - port: envoy-metrics
 
 rollOutCiliumPods: true
 
