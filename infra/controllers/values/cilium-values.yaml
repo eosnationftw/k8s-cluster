@@ -1,3 +1,9 @@
+operator:
+  prometheus:
+    enabled: true
+    serviceMonitor: 
+      enabled: true
+
 hubble:
   enabled: true
   listenAddress: ":4244"
@@ -10,13 +16,36 @@ hubble:
       - port-distribution
       - icmp
       - http
+    serviceMonitor: 
+      enabled: true
   relay:
     enabled: true
+    prometheus: 
+      enabled: true
+      serviceMonitor: 
+        enabled: true
   ui:
     enabled: true
+
 envoy:
   enabled: true
-loadBalancer:
-  l7:
-    algorithm: least_request
-    backend: enabled
+  prometheus: 
+    enabled: true
+    serviceMonitor: 
+      enabled: true
+  extraArgs:
+    admin:
+      address:
+        socket_address:
+          address: 0.0.0.0
+          port_value: 9901
+
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+
+# loadBalancer:
+#   l7:
+#     algorithm: least_request
+#     backend: enabled
