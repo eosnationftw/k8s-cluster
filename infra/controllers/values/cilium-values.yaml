@@ -33,12 +33,12 @@ envoy:
     enabled: true
     serviceMonitor: 
       enabled: true
-  extraArgs:
-    admin:
-      address:
-        socket_address:
-          address: 0.0.0.0
-          port_value: 9901
+  # extraArgs:
+  #   admin:
+  #     address:
+  #       socket_address:
+  #         address: 0.0.0.0
+  #         port_value: 9901
 
 prometheus:
   enabled: true
