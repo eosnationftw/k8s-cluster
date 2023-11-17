@@ -7,5 +7,5 @@ resources:
   - deployment.yaml
   - service.yaml
   - servicemonitor.yaml
-  # - scaledObject.yaml
+  - scaledObject.yaml
   - autoscaler.yaml
