@@ -9,16 +9,22 @@ spec:
     name: substreams-tier2
   minReplicas: 1
   maxReplicas: 10
+  behavior:
+    scaleDown:
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 60
   metrics:
   - type: Resource
     resource:
       name: cpu
       target:
         type: Utilization
-        averageUtilization: 60
+        averageUtilization: 80
   - type: Resource
     resource:
       name: memory
       target:
         type: Utilization
-        averageUtilization: 60
+        averageUtilization: 80
