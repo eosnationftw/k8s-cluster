@@ -15,11 +15,11 @@ metadata:
 spec:
   entryPoints:
     - web
-routes:
-  - match: PathPrefix(`/grafana`)
-    kind: Rule
-    middlewares:
-      - name: grafana-stripprefix
-    services:
-      - name: monitoring-prometheus-grafana
-        port: 80
+  routes:
+    - match: PathPrefix(`/grafana`)
+      kind: Rule
+      middlewares:
+        - name: grafana-stripprefix
+      services:
+        - name: monitoring-prometheus-grafana
+          port: 80
