@@ -45,6 +45,8 @@ prometheus:
   serviceMonitor:
     enabled: true
 
+rollOutCiliumPods: true
+
 # loadBalancer:
 #   l7:
 #     algorithm: least_request
