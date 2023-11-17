@@ -8,6 +8,9 @@ spec:
   type: ClusterIP
   selector:
     app: substreams-tier2
+  annotations:
+    service.cilium.io/lb-l7: enabled
+    service.cilium.io/lb-l7-algorithm: least_request
   ports:
     - name: grpc
       port: 9000
