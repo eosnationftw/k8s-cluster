@@ -1,0 +1,48 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: cilium
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://helm.cilium.io/
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cilium
+  namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: cilium
+      version: "1.14.3"
+      sourceRef:
+        kind: HelmRepository
+        name: cilium
+  targetNamespace: kube-system
+  install:
+    createNamespace: false  # kube-system namespace already exists
+  values:
+    hubble:
+      enabled: true
+      listenAddress: ":4244"
+      metrics:
+        enabled:
+          - dns
+          - drop
+          - tcp
+          - flow
+          - port-distribution
+          - icmp
+          - http
+      relay:
+        enabled: true
+      ui:
+        enabled: true
+    envoy:
+      enabled: true
