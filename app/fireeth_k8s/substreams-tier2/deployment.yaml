@@ -33,7 +33,7 @@ spec:
               protocol: TCP
           env:
             - name: SF_TRACING
-              value: "otelcol://dom84.mar.eosn.io:32535"
+              value: "otelcol://dom86.mar.eosn.io:32535"
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
