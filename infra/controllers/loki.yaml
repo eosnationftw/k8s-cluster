@@ -19,15 +19,15 @@ spec:
   interval: 6h
   chart:
     spec:
-      chart: loki-distributed
-      version: "0.76.1"
+      chart: loki-stack
+      version: "2.9.11"
       sourceRef:
         kind: HelmRepository
         name: loki
   targetNamespace: monitoring
   install:
     createNamespace: true
-  values:
-    loki:
-      enabled: true
-      isDefault: false
+  # values:
+    # loki:
+    #   enabled: true
+    #   isDefault: false
