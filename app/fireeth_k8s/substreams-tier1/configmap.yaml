@@ -21,8 +21,7 @@ data:
         substreams-state-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-substreams-state?region=none&insecure=true
         # substreams-tier1-request-stats: true
         substreams-tier1-grpc-listen-addr: :9000
-        substreams-tier1-subrequests-endpoint: substreams-tier2:9000
-
+        substreams-tier1-discovery-service-url: substreams-tier2:9000
 
         # verbose: 1
         # common-merged-blocks-store-url: "s3://seaweedfs:8333/fireeth-merged-blocks?region=none&insecure=true&access_key_id=any_no_empty_key&secret_access_key=any_no_empty_key"
