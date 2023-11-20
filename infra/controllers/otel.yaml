@@ -62,4 +62,5 @@ spec:
           logs: null
     service:
       type: NodePort
+      nodePort: 32385
     

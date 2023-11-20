@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - weave.yaml                    # Flux dashboard
   - loki.yaml                     # Logs
-  # - tempo.yaml                    # Traces
+  - tempo.yaml                    # Traces
   # - odigos.yaml                   # Instrumentation
   # - otel.yaml                     # OpenTelemetry
   # - fluent.yaml                   # K8s logs transmission
