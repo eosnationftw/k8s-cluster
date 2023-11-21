@@ -5,7 +5,7 @@ resources:
   - weave.yaml                    # Flux dashboard
   - metricServer.yaml             # Metrics server
   - metallb.yaml                  # Load balancer
-  # - traefik.yaml                  # Ingress controller
+  - traefik.yaml                  # Ingress controller
   - loki.yaml                     # Logs
   - tempo.yaml                    # Traces
   - otel.yaml                     # OpenTelemetry
