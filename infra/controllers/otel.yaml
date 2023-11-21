@@ -60,6 +60,4 @@ spec:
               - otlp
           metrics: null
           logs: null
-    service:
-      type: NodePort
     
