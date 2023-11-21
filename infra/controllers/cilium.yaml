@@ -28,6 +28,12 @@ spec:
   install:
     createNamespace: false  # kube-system namespace already exists
   values:
+    operator:
+      prometheus:
+        enabled: true
+        serviceMonitor: 
+          enabled: true
+
     hubble:
       enabled: true
       listenAddress: ":4244"
@@ -40,9 +46,35 @@ spec:
           - port-distribution
           - icmp
           - http
+        serviceMonitor: 
+          enabled: true
       relay:
         enabled: true
+        prometheus: 
+          enabled: true
+          serviceMonitor: 
+            enabled: true
       ui:
         enabled: true
+
     envoy:
       enabled: true
+      prometheus: 
+        enabled: true
+        serviceMonitor: 
+          enabled: true
+
+    prometheus:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+        spec:
+          endpoints:
+            - port: envoy-metrics
+
+    rollOutCiliumPods: true
+
+    # loadBalancer:
+    #   l7:
+    #     algorithm: least_request
+    #     backend: enabled

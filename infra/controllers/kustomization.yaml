@@ -1,16 +1,16 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - cilium.yaml                   # cilium install
   - weave.yaml                    # Flux dashboard
+  - metricServer.yaml             # Metrics server
+  - metallb.yaml                  # Load balancer
+  - traefik.yaml                  # Ingress controller
   - loki.yaml                     # Logs
   - tempo.yaml                    # Traces
-  # - odigos.yaml                   # Instrumentation
   - otel.yaml                     # OpenTelemetry
-  # - fluent.yaml                   # K8s logs transmission
-  - traefik.yaml                  # Ingress controller
   - prometheus.yaml               # Metrics
-  - metallb.yaml                  # Load balancer
-  - metricServer.yaml             # Metrics server
+  # - odigos.yaml                   # Instrumentation
+  # - fluent.yaml                   # K8s logs transmission
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
-  # - cilium.yaml                   # cilium install
