@@ -29,7 +29,7 @@ spec:
               protocol: TCP
           env:
             - name: SF_TRACING
-              value: "otelcol://monitoring-otel-opentelemetry-collector.monitoring:32535"
+              value: "otelcol://monitoring-otel-opentelemetry-collector.monitoring:4317"
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
