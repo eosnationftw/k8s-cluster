@@ -32,21 +32,21 @@ spec:
     kubeControllerManager:
       enabled: true
       endpoints:
-        - 172.22.1.86
+        - 172.22.0.231
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
     kubeScheduler:
       enabled: true
       endpoints:
-        - 172.22.1.86
+        - 172.22.0.231
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
     kubeEtcd:
       enabled: true
       endpoints:
-        - 172.22.1.86
+        - 172.22.0.231
       service:
         port: 2381
       serviceMonitor:
