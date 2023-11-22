@@ -35,12 +35,11 @@ spec:
         - 172.22.0.231
       service:
         enabled: true
-        spec:
-          ipFamilyPolicy: SingleStack
-          ipFamilies:
-            - IPv4
-          selector:
-            component: kube-controller-manager
+        ipFamilyPolicy: SingleStack
+        ipFamilies:
+          - IPv4
+        selector:
+          component: kube-controller-manager
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
