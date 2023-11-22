@@ -35,8 +35,9 @@ spec:
         - 172.22.0.231
       service:
         enabled: true
-        selector:
-          component: kube-controller-manager
+        spec:
+          selector:
+            component: kube-controller-manager
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
