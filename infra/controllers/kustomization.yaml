@@ -9,7 +9,7 @@ resources:
   - loki.yaml                     # Logs
   - tempo.yaml                    # Traces
   - otel.yaml                     # OpenTelemetry
-  # - prometheus.yaml               # Metrics
+  - prometheus.yaml               # Metrics
   # - odigos.yaml                   # Instrumentation
   # - fluent.yaml                   # K8s logs transmission
   # - openebs.yaml                  # Dynamic storage
