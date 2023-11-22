@@ -36,6 +36,9 @@ spec:
       service:
         enabled: true
         spec:
+          ipFamilyPolicy: SingleStack
+          ipFamilies:
+            - IPv4
           selector:
             component: kube-controller-manager
       serviceMonitor:
