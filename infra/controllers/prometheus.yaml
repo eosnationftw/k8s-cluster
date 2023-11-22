@@ -33,15 +33,15 @@ spec:
       enabled: true
       endpoints:
         - 172.22.0.231
-      service:
-        enabled: true
-        port: null
-        targetPort: null
-        ipFamilyPolicy: SingleStack
-        ipFamilies:
-          - IPv4
-        selector:
-          component: kube-controller-manager
+      # service:
+      #   enabled: true
+      #   port: null
+      #   targetPort: null
+      #   ipFamilyPolicy: SingleStack
+      #   ipFamilies:
+      #     - IPv4
+      #   selector:
+      #     component: kube-controller-manager
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -49,13 +49,13 @@ spec:
       enabled: true
       endpoints:
         - 172.22.0.231
-      service:
-        enabled: true
-        port: null
-        targetPort: null
-        ipFamilyPolicy: SingleStack
-        ipFamilies:
-          - IPv4
+      # service:
+      #   enabled: true
+      #   port: null
+      #   targetPort: null
+      #   ipFamilyPolicy: SingleStack
+      #   ipFamilies:
+      #     - IPv4
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -65,9 +65,9 @@ spec:
         - 172.22.0.231
       service:
         enabled: true
-        ipFamilyPolicy: SingleStack
-        ipFamilies:
-          - IPv4
+        # ipFamilyPolicy: SingleStack
+        # ipFamilies:
+        #   - IPv4
         port: 2381
         targetPort: 2381
       serviceMonitor:
