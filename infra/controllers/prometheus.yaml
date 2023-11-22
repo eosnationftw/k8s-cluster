@@ -38,8 +38,6 @@ spec:
         ipFamilyPolicy: SingleStack
         ipFamilies:
           - IPv4
-        selector:
-          component: kube-controller-manager
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -47,6 +45,11 @@ spec:
       enabled: true
       endpoints:
         - 172.22.0.231
+      service:
+        enabled: true
+        ipFamilyPolicy: SingleStack
+        ipFamilies:
+          - IPv4
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
@@ -55,6 +58,10 @@ spec:
       endpoints:
         - 172.22.0.231
       service:
+        enabled: true
+        ipFamilyPolicy: SingleStack
+        ipFamilies:
+          - IPv4
         port: 2381
       serviceMonitor:
         https: true
