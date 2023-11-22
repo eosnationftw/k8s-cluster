@@ -51,6 +51,8 @@ spec:
         - 172.22.0.231
       service:
         enabled: true
+        port: null
+        targetPort: null
         ipFamilyPolicy: SingleStack
         ipFamilies:
           - IPv4
@@ -67,6 +69,7 @@ spec:
         ipFamilies:
           - IPv4
         port: 2381
+        targetPort: 2381
       serviceMonitor:
         https: true
         insecureSkipVerify: "true"
