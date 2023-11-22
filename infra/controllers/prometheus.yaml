@@ -31,8 +31,8 @@ spec:
   values: 
     kubeControllerManager:
       enabled: true
-      # endpoints:
-      #   - 172.22.0.231
+      endpoints:
+        - 172.22.0.231
       service:
         enabled: true
         selector:
