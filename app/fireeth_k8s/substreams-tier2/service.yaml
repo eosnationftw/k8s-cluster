@@ -4,11 +4,12 @@ metadata:
   name: substreams-tier2
   labels:
     app: substreams-tier2
-  annotations:
-    service.cilium.io/lb-l7: enabled
-    service.cilium.io/lb-l7-algorithm: least_request
+  # annotations:
+  #   service.cilium.io/lb-l7: enabled
+  #   service.cilium.io/lb-l7-algorithm: least_request
 spec:
   type: ClusterIP
+  clusterIP: 
   selector:
     app: substreams-tier2
   ports:
