@@ -9,7 +9,7 @@ metadata:
   #   service.cilium.io/lb-l7-algorithm: least_request
 spec:
   type: ClusterIP
-  clusterIP: 
+  clusterIP: None
   selector:
     app: substreams-tier2
   ports:
