@@ -7,6 +7,7 @@ metadata:
   annotations:
     prometheus.io/scrape: "true"
 spec:
+  clusterIP: None
   selector:
     app: substreams-tier1
   ports:
