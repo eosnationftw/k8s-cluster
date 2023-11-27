@@ -39,6 +39,8 @@ spec:
         protocol: TCP
         nodePort: 30317
         appProtocol: grpc
+    service:
+      type: NodePort
     config:
       receivers:
         jaeger: null
