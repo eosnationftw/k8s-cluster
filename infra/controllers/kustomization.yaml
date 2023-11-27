@@ -8,7 +8,7 @@ resources:
   - traefik.yaml                  # Ingress controller
   - loki.yaml                     # Logs
   - tempo.yaml                    # Traces
-  - otel.yaml                     # OpenTelemetry
+  # - otel.yaml                     # OpenTelemetry
   - prometheus.yaml               # Metrics
   # - odigos.yaml                   # Instrumentation
   # - fluent.yaml                   # K8s logs transmission
