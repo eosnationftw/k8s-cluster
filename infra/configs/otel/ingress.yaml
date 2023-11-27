@@ -1,0 +1,25 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: otc-stripprefix
+spec:
+  stripPrefix:
+    prefixes:
+      - /otc
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  namespace: monitoring
+  name: otc
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: PathPrefix(`/otc`)
+      kind: Rule
+      middlewares:
+        - name: otc-stripprefix
+      services:
+        - name: monitoring-otel-opentelemetry-collector 
+          port: 80
