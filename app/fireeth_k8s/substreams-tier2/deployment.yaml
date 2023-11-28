@@ -18,7 +18,10 @@ spec:
           resources:
             requests:
               memory: "4Gi"
-              cpu: "3000m"
+              cpu: "4000m"
+            limits:
+              memory: "10Gi"
+              cpu: "8000m"
           args:
             - "start"
             - "-c"
@@ -43,7 +46,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: s3-secret
-                  key: AWS_SECRET_ACCESS_KEY
+                  key: AWS_SECRET_ACCESS_KEY 
             - name: DSTORE_S3_BUFFERED_READ
               value: "true"
           volumeMounts:
@@ -53,3 +56,8 @@ spec:
         - name: config-volume
           configMap:
             name: substreams-tier2-config
+
+# 76: 8 cpu, 126 RAM
+# 86: 56 CPU, 252 RAM
+# 87: 56 CPU, 252 RAM
+# tot: 120 CPU, 630 RAM

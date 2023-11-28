@@ -20,7 +20,6 @@ data:
         substreams-rpc-endpoints: http://goerli-erigon.service.march.consul.eosn.io:8545
         substreams-state-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-substreams-state?region=none&insecure=true
         substreams-rpc-cache-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-rpc-cache?region=none&insecure=true
-        # substreams-tier1-request-stats: true
         substreams-tier1-grpc-listen-addr: :9000
         substreams-tier1-subrequests-endpoint: substreams-tier2:9000
 
