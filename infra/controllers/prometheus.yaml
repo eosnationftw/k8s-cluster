@@ -91,9 +91,7 @@ spec:
       grafana.ini:
         server:
           root_url: "%(protocol)s://%(domain)s:/grafana"
-
-    # grafana:
-    #   additionalDataSources:
+      additionalDataSources:
     #     - name: Loki
     #       type: loki
     #       uid: Loki
@@ -109,27 +107,27 @@ spec:
     #             matcherRegex: "trace_id=(\\w+)"
     #             url: "$${__value.raw}"
     #             datasourceUid: Tempo
-    #     - name: Tempo
-    #       type: tempo
-    #       uid: Tempo
-    #       access: proxy
-    #       url: http://monitoring-tempo:3100
-    #       jsonData:
-    #         httpMethod: GET
-    #         tracesToLogs:
-    #           datasourceUid: 'Loki'
-    #           tags: ['k8s.pod.name']
-    #           mappedTags: [{ key: 'k8s.pod.name', value: 'k8s_pod_name' }]
-    #           mapTagNamesEnabled: true
-    #           spanStartTimeShift: '-1h'
-    #           spanEndTimeShift: '1h'
-    #           filterByTraceID: true
-    #           filterBySpanID: false
-    #         serviceMap:
-    #           datasourceUid: 'Prometheus'
-    #         search:
-    #           hide: false
-    #         nodeGraph:
-    #           enabled: true
-    #         lokiSearch:
-    #           datasourceUid: 'Loki'
+        - name: Tempo
+          type: tempo
+          uid: Tempo
+          access: proxy
+          url: http://monitoring-tempo:3100
+          jsonData:
+            httpMethod: GET
+            tracesToLogs:
+              datasourceUid: 'Loki'
+              tags: ['k8s.pod.name']
+              mappedTags: [{ key: 'k8s.pod.name', value: 'k8s_pod_name' }]
+              mapTagNamesEnabled: true
+              spanStartTimeShift: '-1h'
+              spanEndTimeShift: '1h'
+              filterByTraceID: true
+              filterBySpanID: false
+            serviceMap:
+              datasourceUid: 'Prometheus'
+            search:
+              hide: false
+            nodeGraph:
+              enabled: true
+            lokiSearch:
+              datasourceUid: 'Loki'
