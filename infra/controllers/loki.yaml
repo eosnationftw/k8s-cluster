@@ -32,12 +32,12 @@ spec:
       enabled: true
       isDefault: false
       datasource:
-        jsonData: 
-          derivedFields:
-          - name: "traceID"
-            matcherRegex: "trace_id=(\\w+)"
-            url: "$${__value.raw}"
-            datasourceUid: Tempo
+        # jsonData: 
+        #   derivedFields:
+        #   - name: "traceID"
+        #     matcherRegex: "trace_id=(\\w+)"
+        #     url: "$${__value.raw}"
+        #     datasourceUid: Tempo
         uid: loki
     promtail:
       enabled: true
