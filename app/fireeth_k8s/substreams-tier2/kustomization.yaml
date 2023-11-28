@@ -9,3 +9,4 @@ resources:
   - servicemonitor.yaml
   #- scaledObject.yaml
   - autoscaler.yaml
+  - vpa.yaml
