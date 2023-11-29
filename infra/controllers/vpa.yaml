@@ -1,0 +1,36 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: vpa
+  namespace: flux-system
+spec:
+  interval: 6h
+  url: https://charts.fairwinds.com/stable
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vpa
+  namespace: flux-system
+  annotations:
+    helm.fluxcd.io/uninstall: true
+spec:
+  interval: 6h
+  chart:
+    spec:
+      chart: vpa
+      version: "3.0.2"
+      sourceRef:
+        kind: HelmRepository
+        name: vpa
+  targetNamespace: vpa
+  install:
+    createNamespace: true
+
+  values:
+    recommender:
+      extraArgs:
+        prometheus-address: |
+          http://monitoring-prometheus-kube-prometheus.monitoring:9090
+        storage: prometheus

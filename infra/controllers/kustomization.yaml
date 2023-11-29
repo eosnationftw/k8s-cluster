@@ -14,4 +14,4 @@ resources:
   # - fluent.yaml                   # K8s logs transmission
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
-  - crds
+  - vpa.yaml                      # Vertical autoscaling
