@@ -16,7 +16,7 @@ spec:
         - name: ghcr-cred
       containers:
         - name: sf-metering-sink
-          image: ghcr.io/pinax-network/sf-metering-sink:e5278b1
+          image: ghcr.io/pinax-network/sf-metering-sink:3c0a0c1
           args:
             - "-config"
             - "/config/config.yaml"

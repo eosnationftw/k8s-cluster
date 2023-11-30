@@ -19,28 +19,3 @@ data:
       #  event_aggregation: true
       - name: log
         event_aggregation: true
-    
-    clickhouse:
-      hosts:
-        - "localhost:9000"
-      user: "default"
-      password: "secret"
-      database: "usage_v1"
-      max_open_conns: 10
-      max_idle_conns: 10
-    
-    elastic:
-      index: "dev-sf-usage-v1"
-      num_workers: 4
-      user: "sf-dev"
-      password: "secret"
-      hosts:
-        - "http://esh1-master1.mar.eosn.io:9200"
-        - "http://esh1-master2.mar.eosn.io:9200"
-        - "http://esh1-master3.mar.eosn.io:9200"
-    
-    redis:
-      hosts:
-        - 127.0.0.1:26379
-      master_name: "mymaster"
-      trace_key_ttl: 10s
