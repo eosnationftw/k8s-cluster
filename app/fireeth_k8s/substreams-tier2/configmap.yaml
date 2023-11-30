@@ -9,7 +9,7 @@ data:
       args:
         - substreams-tier2
       flags:
-        verbose: 1
+        # verbose: 1
         common-metering-plugin: "grpc://sf-metering-v1.service.march.consul.eosn.io:9000?network=goerli"
         common-live-blocks-addr: dns:///goerli-sf-relayer-v4.service.march.consul.eosn.io:9000
         common-merged-blocks-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-merged-blocks?region=none&insecure=true
