@@ -3,13 +3,13 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   namespace: pinax-cloud-backend
-  name: sf-metering-sink
+  name: pinax-account-api
 spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/sf-metering-sink`)
+    - match: PathPrefix(`/pinax-account-api`)
       kind: Rule
       services:
-        - name: sf-metering-sink
+        - name: pinax-account-api
           port: 8080

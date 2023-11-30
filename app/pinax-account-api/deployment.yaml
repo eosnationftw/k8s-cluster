@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinax-account-api
+spec:
+  selector:
+    matchLabels:
+      app: pinax-account-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pinax-account-api
+    spec:
+      imagePullSecrets:
+        - name: ghcr-cred
+      containers:
+        - name: pinax-account-api
+          image: ghcr.io/pinax-network/pinax-account-api:674b630
+          args:
+            - "-config"
+            - "/config/config.yaml"
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: pinax-account-api-config

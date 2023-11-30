@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/pinax-authenticator/`)
+    - match: PathPrefix(`/pinax-authenticator`)
       kind: Rule
       services:
         - name: pinax-authenticator
