@@ -3,13 +3,13 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   namespace: pinax-cloud-backend
-  name: pinax-authenticator
+  name: sf-metering-sink
 spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/pinax-authenticator/`)
+    - match: PathPrefix(`/sf-metering-sink/`)
       kind: Rule
       services:
-        - name: pinax-authenticator
+        - name: sf-metering-sink
           port: 8080

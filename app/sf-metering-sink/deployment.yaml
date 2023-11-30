@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sf-metering-sink
+spec:
+  selector:
+    matchLabels:
+      app: sf-metering-sink
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sf-metering-sink
+    spec:
+      imagePullSecrets:
+        - name: ghcr-cred
+      containers:
+        - name: sf-metering-sink
+          image: ghcr.io/pinax-network/sf-metering-sink:e5278b1
+          args:
+            - "-config"
+            - "/config/config.yaml"
+          ports:
+            - name: grpc
+              containerPort: 9000
+              protocol: TCP
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: sf-metering-sink-config
