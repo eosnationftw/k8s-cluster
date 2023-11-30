@@ -16,7 +16,7 @@ spec:
         - name: ghcr-cred
       containers:
         - name: pinax-authenticator
-          image: ghcr.io/pinax-network/pinax-authenticator:latest
+          image: ghcr.io/pinax-network/pinax-authenticator:a7e8c22
           args:
             - "-config"
             - "/config/config.yaml"
