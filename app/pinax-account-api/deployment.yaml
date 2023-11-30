@@ -16,7 +16,7 @@ spec:
         - name: ghcr-cred
       containers:
         - name: pinax-account-api
-          image: ghcr.io/pinax-network/pinax-account-api:674b630
+          image: ghcr.io/pinax-network/pinax-account-api:8872e80
           args:
             - "-config"
             - "/config/config.yaml"
