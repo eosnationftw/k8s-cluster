@@ -19,7 +19,7 @@ data:
       client: "oYTbWmnOXZMCzsqXkZnjUu3JzneS2oO2"
       secret: "LRl94s-hLNij2BaFgxEIU499i1UsCCY4vwU9lG1MoVotZnNFxmdmgDndgwfJ4d0U"
 
-    mysql:
+    database:
       is_galera_cluster: true
       balancing_mode: "ordered"
       user: "pinax_api_staging"
