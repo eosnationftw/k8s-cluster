@@ -9,7 +9,7 @@ data:
       args:
         - substreams-tier1
       flags:
-        # verbose: 1
+        log-verbosity: 1
         common-auth-plugin: "grpc://pinax-account-api-grpc.service.march.consul.eosn.io:9000"
         common-metering-plugin: "grpc://sf-metering-v1.service.march.consul.eosn.io:9000?network=goerli"
         common-live-blocks-addr: dns:///goerli-sf-relayer-v4.service.march.consul.eosn.io:9000
@@ -17,9 +17,9 @@ data:
         common-one-block-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-one-blocks?region=none&insecure=true
         common-forked-blocks-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-forked-blocks?region=none&insecure=true
         common-system-shutdown-signal-delay: 10s
+        substreams-rpc-cache-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-rpc-cache?region=none&insecure=true
         substreams-rpc-endpoints: http://goerli-erigon.service.march.consul.eosn.io:8545
         substreams-state-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-substreams-state?region=none&insecure=true
-        substreams-rpc-cache-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-rpc-cache?region=none&insecure=true
         substreams-tier1-grpc-listen-addr: :9000
         substreams-tier1-subrequests-endpoint: substreams-tier2:9000
 
