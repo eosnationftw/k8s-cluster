@@ -3,3 +3,5 @@ kind: Kustomization
 resources: 
   - fireeth_k8s
   - pinax-authenticator
+  - pinax-account-api
+  - sf-metering-sink
