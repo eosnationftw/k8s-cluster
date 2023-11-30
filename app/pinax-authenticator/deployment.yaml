@@ -12,6 +12,8 @@ spec:
       labels:
         app: pinax-authenticator
     spec:
+      imagePullSecrets:
+        - ghcr-cred
       containers:
         - name: pinax-authenticator
           image: ghcr.io/pinax-network/pinax-authenticator:latest
