@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pinax-authenticator
+spec:
+  selector:
+    matchLabels:
+      app: pinax-authenticator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pinax-authenticator
+    spec:
+      containers:
+        - name: pinax-authenticator
+          image: ghcr.io/pinax-network/pinax-authenticator:latest
+          args:
+            - "-config"
+            - "/config/config.yaml"
+          ports:
+            - name: grpc
+              containerPort: 9000
+              protocol: TCP
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: pinax-authenticator-config

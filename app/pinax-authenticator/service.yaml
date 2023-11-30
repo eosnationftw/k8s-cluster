@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pinax-authenticator-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: pinax-authenticator
+  ports:
+    - name: grpc
+      port: 9000
+      protocol: TCP
+      targetPort: grpc
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: http
