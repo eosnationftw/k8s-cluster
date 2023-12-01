@@ -15,3 +15,4 @@ resources:
   # - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
   - vpa.yaml                      # Vertical autoscaling
+  - reloader.yaml                 # Reloader
