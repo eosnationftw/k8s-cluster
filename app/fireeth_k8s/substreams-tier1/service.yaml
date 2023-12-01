@@ -19,14 +19,3 @@ spec:
       port: 9102
       protocol: TCP
       targetPort: prom
----
-
-kind: Service
-apiVersion: v1
-metadata:
-  name: pinax-authenticator
-spec:
-  type: ExternalName
-  externalName: pinax-authenticator.pinax-cloud-backend.svc.cluster.local
-  ports:
-    - port: 9000
