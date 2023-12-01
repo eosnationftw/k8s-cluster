@@ -6,7 +6,7 @@ metadata:
   name: substreams-tier1
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: Host(`goerli-substreams.mar.eosn.io`)
       kind: Rule
