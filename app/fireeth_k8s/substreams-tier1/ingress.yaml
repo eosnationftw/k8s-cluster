@@ -8,7 +8,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: PathPrefix(`/a`)
+    - match: Host(`goerli-substreams.mar.eosn.io`)
       kind: Rule
       services:
         - name: substreams-tier1
