@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: substreams-tier1
-  annotations:
-    reloader.stakater.com/auto: "true"
 spec:
   selector:
     matchLabels:
@@ -11,6 +9,8 @@ spec:
   replicas: 1
   template:
     metadata:
+      annotations:
+        reloader.stakater.com/auto: "true"
       labels:
         app: substreams-tier1
     spec:
