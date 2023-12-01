@@ -9,6 +9,8 @@ spec:
   replicas: 3
   template:
     metadata:
+      annotations:
+        reloader.stakater.com/auto: "true"
       labels:
         app: sf-metering-sink
     spec:
