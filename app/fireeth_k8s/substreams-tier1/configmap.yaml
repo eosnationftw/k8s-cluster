@@ -10,7 +10,7 @@ data:
         - substreams-tier1
       flags:
         log-verbosity: 1
-        common-auth-plugin: "grpc://10.96.107.225:9000"
+        common-auth-plugin: "grpc://pinax-authenticator.pinax-cloud-backend.svc.cluster.local:9000"
         common-metering-plugin: "grpc://sf-metering-sink.pinax-cloud-backend.svc.cluster.local:9000/?network=goerli"
         common-live-blocks-addr: dns:///goerli-sf-relayer-v4.service.march.consul.eosn.io:9000
         common-merged-blocks-store-url: s3://ceph-gw.service.march.consul.eosn.io:7480/goerli-sf-v4-merged-blocks?region=none&insecure=true
