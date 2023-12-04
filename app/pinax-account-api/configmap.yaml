@@ -11,7 +11,7 @@ data:
       domain: "http://localhost:8080"
     
     auth0:
-      auth0_domain: "pinax-dev.us.auth0.com"
+      auth0_domain: "login.dev.pinax.network"
       namespace: "https://dev.pinax.network/"
       auth0_allowed_audiences:
         - "https://api.dev.pinax.network/v1/"
