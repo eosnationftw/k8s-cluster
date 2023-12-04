@@ -31,5 +31,8 @@ spec:
               mountPath: /config
       volumes:
         - name: config-volume
-          configMap:
-            name: pinax-account-api-config
+          secret:
+            secretName: pinax-account-api-config
+            items:
+              - key: config.yaml
+                path: config.yaml
