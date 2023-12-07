@@ -86,12 +86,6 @@ spec:
       service:
         portName: http-metrics
         port: 9020
-    
-    alertmanager:
-      enabled: true
-      ingress:
-        enabled: true
-        ingressClassName: traefik
       
     grafana:
       grafana.ini:
