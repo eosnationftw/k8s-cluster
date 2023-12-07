@@ -86,7 +86,10 @@ spec:
       service:
         portName: http-metrics
         port: 9020
-
+    
+    alertmanager:
+      enabled: true
+      
     grafana:
       grafana.ini:
         server:
