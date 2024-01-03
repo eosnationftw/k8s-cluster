@@ -1,7 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources: 
+resources:
   - fireeth_k8s
   - pinax-authenticator
   - pinax-account-api
   - sf-metering-sink
+  - clickhouse
