@@ -20,10 +20,13 @@ spec:
   chart:
     spec:
       chart: openebs
-      version: "3.9.0"
+      version: "3.10.0"
       sourceRef:
         kind: HelmRepository
         name: openebs
   targetNamespace: openebs
   install:
     createNamespace: true
+  values:
+    localprovisioner:
+      basePath: "/tank-ssd"

@@ -12,7 +12,7 @@ resources:
   - prometheus.yaml               # Metrics
   # - odigos.yaml                   # Instrumentation
   # - fluent.yaml                   # K8s logs transmission
-  # - openebs.yaml                  # Dynamic storage
+  - openebs.yaml                  # Dynamic storage
   # - keda.yaml                     # Horizontal autoscaling
   - vpa.yaml                      # Vertical autoscaling
   - reloader.yaml                 # Reloader
