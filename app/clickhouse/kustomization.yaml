@@ -5,4 +5,3 @@ namespace: clickhouse
 resources:
   - namespace.yaml
   - pvc.yaml
-  - ingress.yaml
