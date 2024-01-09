@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  namespace: clickhouse
+  name: clickhouse
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`clickhouse.mar.eosn.io`)
+      kind: Rule
+      services:
+        - name: clickhouse-pv-log
+          port: 8123
+        - name: clickhouse-pv-log
+          port: 9000
