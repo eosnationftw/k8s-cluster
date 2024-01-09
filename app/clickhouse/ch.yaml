@@ -13,7 +13,7 @@ spec:
           shardsCount: 2
           replicasCount: 2
     users:
-      admin/k8s_secret_env_password: clickhouse-secret/pwduseradmin
+      admin/k8s_secret_password: clickhouse-secret/pwduseradmin
 
   templates:
     podTemplates:
