@@ -36,3 +36,55 @@ spec:
   storageClassName: openebs-hostpath
   accessModes:
     - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-storage-vc-template-chi-pv-log-deployment-pv-0-0-0
+spec:
+  resources:
+    requests:
+      storage: 500Gi
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: log-storage-vc-template-chi-pv-log-deployment-pv-0-0-0
+spec:
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: data-storage-vc-template-chi-pv-log-deployment-pv-1-0-0
+spec:
+  resources:
+    requests:
+      storage: 500Gi
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: log-storage-vc-template-chi-pv-log-deployment-pv-1-0-0
+spec:
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
