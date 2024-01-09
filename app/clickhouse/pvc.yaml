@@ -10,3 +10,29 @@ spec:
   storageClassName: openebs-hostpath
   accessModes:
     - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: datadir-volume-zookeeper-1
+spec:
+  resources:
+    requests:
+      storage: 25Gi
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: datadir-volume-zookeeper-2
+spec:
+  resources:
+    requests:
+      storage: 25Gi
+  storageClassName: openebs-hostpath
+  accessModes:
+    - ReadWriteOnce
