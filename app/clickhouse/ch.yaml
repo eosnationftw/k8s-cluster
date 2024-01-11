@@ -12,6 +12,11 @@ spec:
         layout:
           shardsCount: 2
           replicasCount: 2
+    files:
+      host.xml: |
+        <clickhouse>
+          <listen_host>0.0.0.0</listen_host>
+        </clickhouse>
     users:
       admin/k8s_secret_password: clickhouse-secret/pwduseradmin
 
